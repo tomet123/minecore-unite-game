@@ -1,0 +1,9 @@
+# Project exclude paths
+/.gradle/
+/.idea/
+/build/
+
+# Minestom
+/.minestom_tmp/
+/.mixin.out/
+/extensions/
