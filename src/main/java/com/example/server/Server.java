@@ -1,7 +1,11 @@
 package com.example.server;
 
+import com.example.server.Provider.GamePlayer;
 import com.example.server.command.dev.GenerateChunkJsonCommand;
-import com.example.server.map.Lobbymap;
+import com.example.server.command.dev.TestLevelCommand;
+import com.example.server.command.dev.TestScoreCommand;
+import com.example.server.event.EventImpl;
+import com.example.server.map.LobbyMapMonitor;
 import com.example.server.world.SpawnGenerator;
 import net.minestom.server.MinecraftServer;
 import net.minestom.server.coordinate.Pos;
@@ -10,16 +14,14 @@ import net.minestom.server.entity.Player;
 import net.minestom.server.event.EventFilter;
 import net.minestom.server.event.EventNode;
 import net.minestom.server.event.GlobalEventHandler;
-import net.minestom.server.event.player.PlayerBlockBreakEvent;
-import net.minestom.server.event.player.PlayerBlockPlaceEvent;
-import net.minestom.server.event.player.PlayerLoginEvent;
+import net.minestom.server.event.player.*;
 import net.minestom.server.event.trait.PlayerEvent;
 import net.minestom.server.extras.optifine.OptifineSupport;
 import net.minestom.server.instance.Chunk;
 import net.minestom.server.instance.InstanceContainer;
 import net.minestom.server.instance.InstanceManager;
-import net.minestom.server.instance.block.rule.BlockPlacementRule;
-import net.minestom.server.instance.block.rule.vanilla.StairsPlacementRule;
+import net.minestom.server.item.ItemStack;
+import net.minestom.server.item.Material;
 import net.minestom.server.utils.NamespaceID;
 import net.minestom.server.world.DimensionType;
 
@@ -31,15 +33,15 @@ public class Server {
     private static final NamespaceID NO_LIGHT_MGMT_DIMENSION_ID = NamespaceID.from("gauntlet:empty_instance");
 
 
-    private InstanceManager instanceManager;
-    private MinecraftServer minecraftServer;
+    private final InstanceManager instanceManager;
+    private final MinecraftServer minecraftServer;
 
 
     private InstanceContainer lobbyInstance;
     private InstanceContainer startingInstance;
     private InstanceContainer gameInstance;
 
-    private Lobbymap lobbymap;
+    private LobbyMapMonitor lobbymap;
 
     private DimensionType generateFullLightDim(){
 
@@ -59,23 +61,27 @@ public class Server {
     private void serverOptions(){
         OptifineSupport.enable();
         PlacementRules.init();
+        MinecraftServer.getConnectionManager().setPlayerProvider(GamePlayer::new);
 
     }
 
     private void events(){
 
         EventNode<PlayerEvent> playerNode = EventNode.type("player-listener", EventFilter.PLAYER);
+        playerNode.setPriority(500);
         playerNode.addListener(PlayerBlockBreakEvent.class,playerBlockBreakEvent -> {
             if(!DEV)playerBlockBreakEvent.setCancelled(true);
         });
-        playerNode.addListener(PlayerBlockPlaceEvent.class, playerBlockBreakEvent -> {
-            if(!DEV)playerBlockBreakEvent.setCancelled(true);
+        playerNode.addListener(PlayerBlockPlaceEvent.class, playerBlockPlaceEvent -> {
+            if(!DEV)playerBlockPlaceEvent.setCancelled(true);
         });
+
         playerNode.addListener(PlayerLoginEvent.class, event -> {
             final Player player = event.getPlayer();
             event.setSpawningInstance(lobbyInstance);
             player.setRespawnPoint(new Pos(Chunk.CHUNK_SIZE_X/2, 42, Chunk.CHUNK_SIZE_Z/2));
-            player.setGameMode(GameMode.CREATIVE);
+            player.setGameMode(GameMode.SURVIVAL);
+            player.setItemInMainHand(ItemStack.of(Material.STONE,100));
         });
 
         GlobalEventHandler globalEventHandler = MinecraftServer.getGlobalEventHandler();
@@ -88,6 +94,8 @@ public class Server {
     private void dev(){
 
         MinecraftServer.getCommandManager().register(new GenerateChunkJsonCommand());
+        MinecraftServer.getCommandManager().register(new TestLevelCommand());
+        MinecraftServer.getCommandManager().register(new TestScoreCommand());
 
     }
 
@@ -97,13 +105,13 @@ public class Server {
 
         serverOptions();
         initLobby();
-        if(DEV=true)dev();
+        if(DEV)dev();
         events();
-
+        EventImpl.inicialize();
 
         minecraftServer.start("0.0.0.0", 25565);
 
-        Lobbymap.inicialize(lobbyInstance,"lobby-main");
+        LobbyMapMonitor.inicialize(lobbyInstance,"lobby-main");
 
     }
 }

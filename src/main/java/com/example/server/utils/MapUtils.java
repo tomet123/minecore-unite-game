@@ -22,8 +22,8 @@ public class MapUtils {
 
     public static List<MapPos> generateMapPos(Pos lLeftCorner, Pos hRightCorner) {
         List<MapPos> d = new ArrayList<>();
-        int xm=0,ym=0,zm=0;
-        double xr=1,yr=1,zr=1;
+        int xm=0,ym=0,zm=0; // pocitadlo pixelu
+        double xr,yr,zr; //rotace +-
         if(lLeftCorner.x()<=hRightCorner.x())xr=1; else xr=-1;
         if(lLeftCorner.z()<=hRightCorner.z())zr=1; else zr=-1;
         if(lLeftCorner.y()<=hRightCorner.y())yr=1; else yr=-1;

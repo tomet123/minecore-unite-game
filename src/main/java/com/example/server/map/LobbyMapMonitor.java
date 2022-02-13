@@ -6,10 +6,10 @@ import net.minestom.server.instance.Instance;
 
 import java.awt.*;
 
-public class Lobbymap extends BaseMap {
+public class LobbyMapMonitor extends BaseMapMonitor {
 
 
-    protected Lobbymap(Instance i, String name) {
+    protected LobbyMapMonitor(Instance i, String name) {
         super(i, name);
         setHLeftCorner(new Pos(-1, 48, 25));
         setLRightCorner(new Pos(-1, 42, 6));

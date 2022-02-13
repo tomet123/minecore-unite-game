@@ -23,16 +23,16 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 
-public abstract class BaseMap {
+public abstract class BaseMapMonitor {
 
-    protected static BaseMap map;
+    protected static BaseMapMonitor map;
 
     protected LargeGraphics2DFramebuffer framebuffer;
     protected List<MapPos> mpos = null;
 
     protected String name;
 
-    private Instance instance;
+    private final Instance instance;
 
     @Getter
     @Setter
@@ -59,17 +59,17 @@ public abstract class BaseMap {
     @Setter
     private long repeatms = 50;
 
-    protected BaseMap(Instance i, String name) {
+    protected BaseMapMonitor(Instance i, String name) {
         this.name = name;
         this.instance = i;
 
     }
 
-    public static BaseMap inicialize(Instance i, String name) {
+    public static BaseMapMonitor inicialize(Instance i, String name) {
         EventNode<InstanceEvent> playerNode = EventNode.type(name + "-map-image", EventFilter.INSTANCE);
         playerNode.addListener(InstanceTickEvent.class, it -> {
             if (map == null && i != null) {
-                map = new Lobbymap(i, name);
+                map = new LobbyMapMonitor(i, name);
             }
         });
         GlobalEventHandler globalEventHandler = MinecraftServer.getGlobalEventHandler();
@@ -78,7 +78,7 @@ public abstract class BaseMap {
         return map;
     }
 
-    private static void tick(BaseMap lobbymap) {
+    private static void tick(BaseMapMonitor lobbymap) {
 
         Graphics2D renderer = lobbymap.framebuffer.getRenderer();
         lobbymap.renderer(renderer);
@@ -86,13 +86,11 @@ public abstract class BaseMap {
         send(map);
     }
 
-    private static void send(BaseMap lobbymap) {
+    private static void send(BaseMapMonitor lobbymap) {
         List<MapDataPacket> mdp = lobbymap.mpos.stream().map(mapPos1 ->
-                lobbymap.framebuffer.createSubView(mapPos1.getLeft(), mapPos1.getTop()).preparePacket(mapPos1.getMapId())).collect(Collectors.toList());
+                lobbymap.framebuffer.createSubView(mapPos1.getLeft(), mapPos1.getTop()).preparePacket(mapPos1.getMapId())).toList();
 
-        MinecraftServer.getConnectionManager().getOnlinePlayers().forEach(p -> {
-            mdp.forEach(mapDataPacket -> p.getPlayerConnection().sendPacket(mapDataPacket));
-        });
+        MinecraftServer.getConnectionManager().getOnlinePlayers().forEach(p -> mdp.forEach(mapDataPacket -> p.getPlayerConnection().sendPacket(mapDataPacket)));
     }
 
     protected void initInternal() {
