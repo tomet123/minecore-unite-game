@@ -8,6 +8,10 @@ import net.minestom.server.coordinate.Pos;
 @AllArgsConstructor
 public class MapPos {
 
+    public enum rotation{
+        X,Z
+    }
+
     Pos p;
     int mapId;
 
@@ -15,11 +19,11 @@ public class MapPos {
     int y;
     int z;
 
-    public int getLeft() {
-        return z;
+    public int getLeft(rotation r) {
+        if(rotation.X.equals(r))return x;
+        if(rotation.Z.equals(r))return z;
+        return -1;
     }
-
-    public int getTop() {
-        return y;
-    }
+    //TODO make this dynamic
+    public int getTop() { return y; }
 }

@@ -694,13 +694,6 @@
   },
   {
     "x": -1,
-    "y": 48,
-    "z": 25,
-    "blockID": "minecraft:stone",
-    "nbtCompound": null
-  },
-  {
-    "x": -1,
     "y": 49,
     "z": 25,
     "blockID": "minecraft:black_wool",

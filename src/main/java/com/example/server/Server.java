@@ -95,7 +95,8 @@ public class Server {
             final Player player = event.getPlayer();
             event.setSpawningInstance(lobbyInstance);
             player.setRespawnPoint(new Pos(Chunk.CHUNK_SIZE_X / 2, 42, Chunk.CHUNK_SIZE_Z / 2));
-            player.setGameMode(GameMode.SURVIVAL);
+            if(!Server.DEV)player.setGameMode(GameMode.SURVIVAL);
+            else player.setGameMode(GameMode.CREATIVE);
             player.setItemInMainHand(ItemStack.of(Material.STONE, 100));
         });
 

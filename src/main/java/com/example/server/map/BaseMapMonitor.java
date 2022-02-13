@@ -19,16 +19,22 @@ import net.minestom.server.timer.SchedulerManager;
 import net.minestom.server.utils.time.TimeUnit;
 
 import java.awt.*;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 public abstract class BaseMapMonitor {
 
     protected static BaseMapMonitor map;
     private final Instance instance;
+    private MapPos.rotation rotation = null;
     protected LargeGraphics2DFramebuffer framebuffer;
     protected List<MapPos> mpos = null;
     protected String name;
+
+
     @Getter
     @Setter
     private Pos HLeftCorner = new Pos(0, 0, 0);
@@ -53,6 +59,7 @@ public abstract class BaseMapMonitor {
     @Getter
     @Setter
     private long repeatms = 50;
+
 
     protected BaseMapMonitor(Instance i, String name) {
         this.name = name;
@@ -81,9 +88,20 @@ public abstract class BaseMapMonitor {
         send(map);
     }
 
+    private void generateRotation(){
+        long x = mpos.stream().map(mapPos -> mapPos.getX()).distinct().count();
+        long z = mpos.stream().map(mapPos -> mapPos.getZ()).distinct().count();
+        if(x==1) rotation=MapPos.rotation.Z;
+        else if(z==1) rotation=MapPos.rotation.X;
+    }
+
     private static void send(BaseMapMonitor lobbymap) {
+        lobbymap.generateRotation();
+
+
         List<MapDataPacket> mdp = lobbymap.mpos.stream().map(mapPos1 ->
-                lobbymap.framebuffer.createSubView(mapPos1.getLeft(), mapPos1.getTop()).preparePacket(mapPos1.getMapId())).toList();
+
+               lobbymap.framebuffer.createSubView(mapPos1.getLeft(lobbymap.rotation), mapPos1.getTop()).preparePacket(mapPos1.getMapId())).toList();
 
         MinecraftServer.getConnectionManager().getOnlinePlayers().forEach(p -> mdp.forEach(mapDataPacket -> p.getPlayerConnection().sendPacket(mapDataPacket)));
     }

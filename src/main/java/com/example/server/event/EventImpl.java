@@ -25,8 +25,8 @@ public class EventImpl {
         inventoryNode.setPriority(500);
         playerNode.setPriority(500);
 
-        inventoryNode.addListener(InventoryPreClickEvent.class, this::inventoryPreClickEvent);
-        playerNode.addListener(PlayerPacketEvent.class, this::playerPacketEvent);
+        if(!Server.DEV)inventoryNode.addListener(InventoryPreClickEvent.class, this::inventoryPreClickEvent);
+        if(!Server.DEV)playerNode.addListener(PlayerPacketEvent.class, this::playerPacketEvent);
 
         GlobalEventHandler globalEventHandler = MinecraftServer.getGlobalEventHandler();
         globalEventHandler.addChild(playerNode);
