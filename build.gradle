@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id "com.github.johnrengelman.shadow" version "6.1.0"
+    id 'io.freefair.lombok' version '6.4.0'
 }
 
 group 'com.example'
@@ -16,7 +17,8 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.github.Minestom:Minestom:25176e9b9d'
+    implementation 'com.github.Minestom:Minestom:cc0c7e00b2'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.1'
 }
 
 jar {
@@ -24,4 +26,9 @@ jar {
         attributes 'Main-Class': 'com.example.server.Start',
                 "Multi-Release": true
     }
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
 }
