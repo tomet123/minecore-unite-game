@@ -2,6 +2,7 @@ package cz.tomet123.server;
 
 import cz.tomet123.server.Provider.GamePlayer;
 import cz.tomet123.server.command.dev.GenerateChunkJsonCommand;
+import cz.tomet123.server.command.dev.TestCooldownCommand;
 import cz.tomet123.server.command.dev.TestLevelCommand;
 import cz.tomet123.server.command.dev.TestScoreCommand;
 import cz.tomet123.server.event.EventImpl;
@@ -97,7 +98,7 @@ public class Server {
             player.setRespawnPoint(new Pos(Chunk.CHUNK_SIZE_X / 2, 42, Chunk.CHUNK_SIZE_Z / 2));
             if(!Server.DEV)player.setGameMode(GameMode.SURVIVAL);
             else player.setGameMode(GameMode.CREATIVE);
-            player.setItemInMainHand(ItemStack.of(Material.STONE, 100));
+            player.getInventory().setItemStack(0,ItemStack.of(Material.DIAMOND_SWORD,1));
         });
 
         GlobalEventHandler globalEventHandler = MinecraftServer.getGlobalEventHandler();
@@ -110,6 +111,8 @@ public class Server {
         MinecraftServer.getCommandManager().register(new GenerateChunkJsonCommand());
         MinecraftServer.getCommandManager().register(new TestLevelCommand());
         MinecraftServer.getCommandManager().register(new TestScoreCommand());
+        MinecraftServer.getCommandManager().register(new TestCooldownCommand());
+
 
     }
 }

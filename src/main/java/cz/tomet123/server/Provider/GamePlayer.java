@@ -1,21 +1,32 @@
 package cz.tomet123.server.Provider;
 
+import cz.tomet123.server.Spell.ExampleSpell;
+import cz.tomet123.server.pojo.SpellPlayerData;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import net.minestom.server.MinecraftServer;
 import net.minestom.server.entity.Player;
 import net.minestom.server.item.ItemStack;
 import net.minestom.server.item.Material;
+import net.minestom.server.network.packet.server.play.SetCooldownPacket;
 import net.minestom.server.network.player.PlayerConnection;
 import net.minestom.server.scoreboard.Team;
 import net.minestom.server.scoreboard.TeamBuilder;
+import net.minestom.server.timer.SchedulerManager;
 import net.minestom.server.timer.Task;
+import net.minestom.server.utils.time.TimeUnit;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 import java.util.UUID;
+import java.util.concurrent.Semaphore;
 
 public class GamePlayer extends Player {
+
+    private static final int UPDATE_DISABLED_SPELLS=16;
+    private static final int DISABLED_SPELLS_TIME=1000;
 
 
     private Task nicKUpdateTask = null;
@@ -37,11 +48,24 @@ public class GamePlayer extends Player {
     //max
     private int maxScore = 30;
 
+    //spells
+    private Map<Integer, SpellPlayerData> spells =new HashMap<>();
+
+    private Semaphore disabledEffectSemaphor = new Semaphore(1);
+
 
     public GamePlayer(@NotNull UUID uuid, @NotNull String username, @NotNull PlayerConnection playerConnection) {
         super(uuid, username, playerConnection);
 
         buildDefaultTeam();
+
+
+        //TODO temp added spell - add to kits
+        spells.put(1,new SpellPlayerData(false,0,0,new ExampleSpell()));
+
+
+        SchedulerManager scheduler = MinecraftServer.getSchedulerManager();
+        scheduler.buildTask(() -> updateEffectCooldown()).repeat(1, TimeUnit.CLIENT_TICK).schedule();
     }
 
     @Override
@@ -80,6 +104,63 @@ public class GamePlayer extends Player {
         nicKUpdateTask = null;
     }
 
+    private void updateEffectCooldown(){
+        while (disabledEffectSemaphor.hasQueuedThreads());
+        try {
+            disabledEffectSemaphor.acquire();
+            spells.forEach((integer, spellPlayerData) -> {
+                if (!spellPlayerData.isActive()) {
+                    if (spellPlayerData.getLastSendDisable() < UPDATE_DISABLED_SPELLS) {
+                        spellPlayerData.setLastSendDisable(spellPlayerData.getLastSendDisable() + 1);
+                    } else {
+                        spellPlayerData.setLastSendDisable(0);
+                        getPlayerConnection().sendPacket(new SetCooldownPacket(getInventory().getItemStack(integer).getMaterial().id(), DISABLED_SPELLS_TIME));
+                    }
+                }
+
+
+            });
+        }catch (InterruptedException e){
+            e.printStackTrace();
+        }
+        disabledEffectSemaphor.release();
+    }
+
+    public void enableEffect(int id){
+        if(spells.get(id)==null) return;
+        while (disabledEffectSemaphor.hasQueuedThreads());
+        try {
+            disabledEffectSemaphor.acquire();
+            if (!spells.get(id).isActive()) {
+                spells.get(id).setLastSendDisable(0);
+                spells.get(id).setActive(true);
+                getPlayerConnection().sendPacket(new SetCooldownPacket(getInventory().getItemStack(id).getMaterial().id(), 0));
+            }
+
+        }catch (InterruptedException e){
+            e.printStackTrace();
+        }
+        disabledEffectSemaphor.release();
+    }
+
+    public void disableEffect(int id){
+        if(spells.get(id)==null) return;
+        while (disabledEffectSemaphor.hasQueuedThreads());
+        try {
+            disabledEffectSemaphor.acquire();
+            if (spells.get(id).isActive()) {
+                spells.get(id).setLastSendDisable(0);
+                spells.get(id).setActive(false);
+                getPlayerConnection().sendPacket(new SetCooldownPacket(getInventory().getItemStack(id).getMaterial().id(), DISABLED_SPELLS_TIME));
+            }
+
+        }catch (InterruptedException e){
+            e.printStackTrace();
+        }
+        disabledEffectSemaphor.release();
+    }
+
+
     private void buildDefaultTeam() {
         TeamBuilder t = new TeamBuilder("nick_" + Objects.requireNonNull(playerConnection.getPlayer()).getUsername(), MinecraftServer.getTeamManager());
         team = t.build();
@@ -90,6 +171,11 @@ public class GamePlayer extends Player {
 
     private void UpdateInventory() {
         getInventory().setItemStack(8, ItemStack.of(Material.EXPERIENCE_BOTTLE, score));
+        spells.forEach((integer, spellPlayerData) -> {
+
+            getInventory().setItemStack(integer, ItemStack.of(spellPlayerData.getSpell().getIcon(), 1));
+
+        });
     }
 
     private void UpdateXpBasedOnLevel() {
