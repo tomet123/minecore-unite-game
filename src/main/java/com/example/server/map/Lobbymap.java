@@ -31,6 +31,12 @@ public class Lobbymap extends BaseMap {
         renderer.drawString("Minecore.cz", 0, 110);
         renderer.setColor(Color.GREEN);
         renderer.drawString("Minecraft Unite Games", 1000, 150);
+        renderer.setFont(new Font("TimesRoman", Font.BOLD, 30));
+        renderer.setColor(Color.YELLOW);
+        renderer.drawString("Minihra: test123", 1500, 300);
+        renderer.setFont(new Font("TimesRoman", Font.BOLD, 30));
+        renderer.setColor(Color.YELLOW);
+        renderer.drawString("Pravidla:", 2000, 300);
     }
 
 
