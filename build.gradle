@@ -1,11 +1,15 @@
 plugins {
     id 'java'
     id "com.github.johnrengelman.shadow" version "6.1.0"
+    id 'net.kyori.blossom' version '1.3.0'
     id 'io.freefair.lombok' version '6.4.0'
 }
 
-group 'com.example'
-version '1.0'
+def displayName = "Minecore Unite Game"
+def minestomVersion = "cc0c7e00b2"
+
+group 'cz.tomet123'
+version '0.1-alfa'
 
 repositories {
     mavenCentral()
@@ -17,16 +21,31 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.github.Minestom:Minestom:cc0c7e00b2'
+    implementation 'com.github.Minestom:Minestom:'+minestomVersion
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.1'
 }
 
+blossom {
+    replaceToken '$Name', displayName
+    replaceToken '$name', displayName.toLowerCase()
+    replaceToken '$version', version
+    replaceToken '$minestomVersion', minestomVersion
+}
+
+processResources.expand(
+        "Name": displayName,
+        "version": version
+)
+
+
 jar {
     manifest {
-        attributes 'Main-Class': 'com.example.server.Start',
+        attributes 'Main-Class': 'cz.tomet123.server.Start',
                 "Multi-Release": true
     }
 }
+
+
 
 java {
     sourceCompatibility = JavaVersion.VERSION_17

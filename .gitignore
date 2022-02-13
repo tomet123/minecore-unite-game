@@ -7,3 +7,5 @@
 /.minestom_tmp/
 /.mixin.out/
 /extensions/
+
+/chunk-json/
