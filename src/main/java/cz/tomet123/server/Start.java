@@ -1,6 +1,6 @@
 package cz.tomet123.server;
 
-public class TemplateServer {
+public class Start {
 
 
     public static Server server;
