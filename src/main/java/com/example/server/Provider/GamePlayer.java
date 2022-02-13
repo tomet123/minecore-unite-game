@@ -1,23 +1,11 @@
 package com.example.server.Provider;
 
-import com.example.server.Server;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import net.minestom.server.MinecraftServer;
 import net.minestom.server.entity.Player;
-import net.minestom.server.event.EventFilter;
-import net.minestom.server.event.EventNode;
-import net.minestom.server.event.GlobalEventHandler;
-import net.minestom.server.event.inventory.InventoryOpenEvent;
-import net.minestom.server.event.inventory.InventoryPreClickEvent;
-import net.minestom.server.event.player.PlayerPacketEvent;
-import net.minestom.server.event.trait.InventoryEvent;
-import net.minestom.server.event.trait.PlayerEvent;
 import net.minestom.server.item.ItemStack;
 import net.minestom.server.item.Material;
-import net.minestom.server.network.packet.client.play.ClientHeldItemChangePacket;
-import net.minestom.server.network.packet.client.play.ClientPlayerDiggingPacket;
-import net.minestom.server.network.packet.server.play.HeldItemChangePacket;
 import net.minestom.server.network.player.PlayerConnection;
 import net.minestom.server.scoreboard.Team;
 import net.minestom.server.scoreboard.TeamBuilder;
@@ -40,7 +28,7 @@ public class GamePlayer extends Player {
     private int xpLevelLastSend = -1;
     private float xpNextLevelLastSend = -1;
     //inventory
-    private int invScoreLastSend =-1;
+    private int invScoreLastSend = -1;
     //RealData
     private int level = 0;
     private float nextLevel = 0;
@@ -48,7 +36,6 @@ public class GamePlayer extends Player {
     private TeamType teamType = TeamType.INLOBBY;
     //max
     private int maxScore = 30;
-
 
 
     public GamePlayer(@NotNull UUID uuid, @NotNull String username, @NotNull PlayerConnection playerConnection) {
@@ -101,9 +88,8 @@ public class GamePlayer extends Player {
     }
 
 
-
-    private void UpdateInventory(){
-        getInventory().setItemStack(8, ItemStack.of(Material.EXPERIENCE_BOTTLE,score));
+    private void UpdateInventory() {
+        getInventory().setItemStack(8, ItemStack.of(Material.EXPERIENCE_BOTTLE, score));
     }
 
     private void UpdateXpBasedOnLevel() {
@@ -119,7 +105,7 @@ public class GamePlayer extends Player {
     }
 
     private void UpdateTeamName() {
-        if ( level != levelLastSend || score != scoreLastSend || teamType != teamTypeLastSend) {
+        if (level != levelLastSend || score != scoreLastSend || teamType != teamTypeLastSend) {
             team.setPrefix(Component.text(level + " ", NamedTextColor.AQUA));
             team.setSuffix(Component.text(" (" + score + ")", NamedTextColor.LIGHT_PURPLE));
 

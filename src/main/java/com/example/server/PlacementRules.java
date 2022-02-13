@@ -5,10 +5,7 @@ import net.minestom.server.instance.block.Block;
 import net.minestom.server.instance.block.BlockManager;
 import net.minestom.server.instance.block.rule.vanilla.AxisPlacementRule;
 import net.minestom.server.instance.block.rule.vanilla.RedstonePlacementRule;
-import net.minestom.server.instance.block.rule.vanilla.StairsPlacementRule;
 import net.minestom.server.instance.block.rule.vanilla.WallPlacementRule;
-
-import java.util.stream.Collectors;
 
 public class PlacementRules {
 
@@ -56,7 +53,6 @@ public class PlacementRules {
        /* Block.values().stream().filter(block -> block.name().contains("stairs"))
                 .collect(Collectors.toList())
                 .forEach(block ->  blockManager.registerBlockPlacementRule(new StairsPlacementRule(block)));*/
-
 
 
     }

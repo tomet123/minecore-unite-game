@@ -11,11 +11,9 @@ import java.util.List;
 public class JsonWorldPlacer {
 
 
-
-
-    public static void generateFromJson(String world,ChunkBatch batch, int chunkX, int chunkZ) throws IOException {
+    public static void generateFromJson(String world, ChunkBatch batch, int chunkX, int chunkZ) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
-        if(JsonWorldPlacer.class.getResource("/"+world+"/"+chunkX+"-"+chunkZ+".json")!=null) {
+        if (JsonWorldPlacer.class.getResource("/" + world + "/" + chunkX + "-" + chunkZ + ".json") != null) {
             List<BlockWitPosJson> blockWitPosList = objectMapper.readValue(
                     JsonWorldPlacer.class.getResourceAsStream("/" + world + "/" + chunkX + "-" + chunkZ + ".json"),
                     objectMapper.getTypeFactory().constructCollectionType(List.class, BlockWitPosJson.class));

@@ -18,11 +18,11 @@ public class TestScoreCommand extends Command {
 
     private void usage(@NotNull CommandSender commandSender, @NotNull CommandContext commandContext) {
 
-        if(commandSender instanceof ConsoleSender) return;
+        if (commandSender instanceof ConsoleSender) return;
 
         GamePlayer p = (GamePlayer) commandSender;
 
-        p.sendMessage("Not consumable: "+p.addScore(3));
+        p.sendMessage("Not consumable: " + p.addScore(3));
     }
 
 

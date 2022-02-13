@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import net.minestom.server.coordinate.Pos;
-import org.jglrxavpok.hephaistos.nbt.NBTCompound;
 
 @Data
 @AllArgsConstructor
@@ -16,7 +15,7 @@ public class PosJson {
     int z;
 
 
-    public Pos getMinestomPos(){
-        return new Pos(x,y,z);
+    public Pos getMinestomPos() {
+        return new Pos(x, y, z);
     }
 }

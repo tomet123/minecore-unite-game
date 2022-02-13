@@ -20,20 +20,15 @@ import net.minestom.server.utils.time.TimeUnit;
 
 import java.awt.*;
 import java.util.List;
-import java.util.stream.Collectors;
 
 
 public abstract class BaseMapMonitor {
 
     protected static BaseMapMonitor map;
-
+    private final Instance instance;
     protected LargeGraphics2DFramebuffer framebuffer;
     protected List<MapPos> mpos = null;
-
     protected String name;
-
-    private final Instance instance;
-
     @Getter
     @Setter
     private Pos HLeftCorner = new Pos(0, 0, 0);

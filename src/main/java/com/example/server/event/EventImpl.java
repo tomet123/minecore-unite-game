@@ -2,7 +2,6 @@ package com.example.server.event;
 
 import com.example.server.Server;
 import net.minestom.server.MinecraftServer;
-import net.minestom.server.entity.Player;
 import net.minestom.server.event.EventFilter;
 import net.minestom.server.event.EventNode;
 import net.minestom.server.event.GlobalEventHandler;
@@ -22,12 +21,7 @@ public class EventImpl {
     EventNode<PlayerEvent> playerNode = EventNode.type("player-listener", EventFilter.PLAYER);
 
 
-    public static void inicialize(){
-        event =new EventImpl();
-    }
-
-
-    public EventImpl(){
+    public EventImpl() {
         inventoryNode.setPriority(500);
         playerNode.setPriority(500);
 
@@ -39,29 +33,31 @@ public class EventImpl {
         globalEventHandler.addChild(inventoryNode);
     }
 
-
-    public void inventoryPreClickEvent(InventoryPreClickEvent inventoryPreClickEvent){
-        if(!Server.DEV)inventoryPreClickEvent.setCancelled(true);
+    public static void inicialize() {
+        event = new EventImpl();
     }
 
-    public void playerPacketEvent(PlayerPacketEvent playerPacketEvent){
+    public void inventoryPreClickEvent(InventoryPreClickEvent inventoryPreClickEvent) {
+        if (!Server.DEV) inventoryPreClickEvent.setCancelled(true);
+    }
 
-        if(playerPacketEvent.getPacket() instanceof ClientPlayerDiggingPacket packet){
-            if(packet.status().equals(ClientPlayerDiggingPacket.Status.DROP_ITEM) || packet.status().equals(ClientPlayerDiggingPacket.Status.DROP_ITEM_STACK) ) {
+    public void playerPacketEvent(PlayerPacketEvent playerPacketEvent) {
+
+        if (playerPacketEvent.getPacket() instanceof ClientPlayerDiggingPacket packet) {
+            if (packet.status().equals(ClientPlayerDiggingPacket.Status.DROP_ITEM) || packet.status().equals(ClientPlayerDiggingPacket.Status.DROP_ITEM_STACK)) {
                 playerPacketEvent.getPlayer().setItemInMainHand(playerPacketEvent.getPlayer().getItemInMainHand());
                 playerPacketEvent.setCancelled(true);
             }
-        }else if(playerPacketEvent.getPacket() instanceof ClientHeldItemChangePacket packet) {
-            if(packet.slot()>0 ) {
+        } else if (playerPacketEvent.getPacket() instanceof ClientHeldItemChangePacket packet) {
+            if (packet.slot() > 0) {
                 playerPacketEvent.getPlayer().setHeldItemSlot((byte) 0); //TODO change based on kit
                 playerPacketEvent.setCancelled(true);
             }
         }
 
-       // System.out.println(playerPacketEvent.getPacket());
+        // System.out.println(playerPacketEvent.getPacket());
 
     }
-
 
 
 }

@@ -1,1 +1,1794 @@
-[{"x":0,"y":40,"z":0,"blockID":"minecraft:iron_block","nbtCompound":null},{"x":1,"y":40,"z":0,"blockID":"minecraft:iron_block","nbtCompound":null},{"x":2,"y":40,"z":0,"blockID":"minecraft:iron_block","nbtCompound":null},{"x":3,"y":40,"z":0,"blockID":"minecraft:iron_block","nbtCompound":null},{"x":4,"y":40,"z":0,"blockID":"minecraft:iron_block","nbtCompound":null},{"x":5,"y":40,"z":0,"blockID":"minecraft:iron_block","nbtCompound":null},{"x":6,"y":40,"z":0,"blockID":"minecraft:iron_block","nbtCompound":null},{"x":7,"y":40,"z":0,"blockID":"minecraft:iron_block","nbtCompound":null},{"x":8,"y":40,"z":0,"blockID":"minecraft:iron_block","nbtCompound":null},{"x":9,"y":40,"z":0,"blockID":"minecraft:iron_block","nbtCompound":null},{"x":10,"y":40,"z":0,"blockID":"minecraft:iron_block","nbtCompound":null},{"x":11,"y":40,"z":0,"blockID":"minecraft:iron_block","nbtCompound":null},{"x":12,"y":40,"z":0,"blockID":"minecraft:iron_block","nbtCompound":null},{"x":13,"y":40,"z":0,"blockID":"minecraft:iron_block","nbtCompound":null},{"x":14,"y":40,"z":0,"blockID":"minecraft:iron_block","nbtCompound":null},{"x":15,"y":40,"z":0,"blockID":"minecraft:iron_block","nbtCompound":null},{"x":0,"y":40,"z":1,"blockID":"minecraft:iron_block","nbtCompound":null},{"x":1,"y":40,"z":1,"blockID":"minecraft:stone","nbtCompound":null},{"x":2,"y":40,"z":1,"blockID":"minecraft:stone","nbtCompound":null},{"x":3,"y":40,"z":1,"blockID":"minecraft:stone","nbtCompound":null},{"x":4,"y":40,"z":1,"blockID":"minecraft:stone","nbtCompound":null},{"x":5,"y":40,"z":1,"blockID":"minecraft:stone","nbtCompound":null},{"x":6,"y":40,"z":1,"blockID":"minecraft:stone","nbtCompound":null},{"x":7,"y":40,"z":1,"blockID":"minecraft:stone","nbtCompound":null},{"x":8,"y":40,"z":1,"blockID":"minecraft:stone","nbtCompound":null},{"x":9,"y":40,"z":1,"blockID":"minecraft:stone","nbtCompound":null},{"x":10,"y":40,"z":1,"blockID":"minecraft:stone","nbtCompound":null},{"x":11,"y":40,"z":1,"blockID":"minecraft:stone","nbtCompound":null},{"x":12,"y":40,"z":1,"blockID":"minecraft:stone","nbtCompound":null},{"x":13,"y":40,"z":1,"blockID":"minecraft:stone","nbtCompound":null},{"x":14,"y":40,"z":1,"blockID":"minecraft:stone","nbtCompound":null},{"x":15,"y":40,"z":1,"blockID":"minecraft:iron_block","nbtCompound":null},{"x":0,"y":40,"z":2,"blockID":"minecraft:iron_block","nbtCompound":null},{"x":1,"y":40,"z":2,"blockID":"minecraft:stone","nbtCompound":null},{"x":2,"y":40,"z":2,"blockID":"minecraft:stone","nbtCompound":null},{"x":3,"y":40,"z":2,"blockID":"minecraft:stone","nbtCompound":null},{"x":4,"y":40,"z":2,"blockID":"minecraft:stone","nbtCompound":null},{"x":5,"y":40,"z":2,"blockID":"minecraft:stone","nbtCompound":null},{"x":6,"y":40,"z":2,"blockID":"minecraft:stone","nbtCompound":null},{"x":7,"y":40,"z":2,"blockID":"minecraft:stone","nbtCompound":null},{"x":8,"y":40,"z":2,"blockID":"minecraft:stone","nbtCompound":null},{"x":9,"y":40,"z":2,"blockID":"minecraft:stone","nbtCompound":null},{"x":10,"y":40,"z":2,"blockID":"minecraft:stone","nbtCompound":null},{"x":11,"y":40,"z":2,"blockID":"minecraft:stone","nbtCompound":null},{"x":12,"y":40,"z":2,"blockID":"minecraft:stone","nbtCompound":null},{"x":13,"y":40,"z":2,"blockID":"minecraft:stone","nbtCompound":null},{"x":14,"y":40,"z":2,"blockID":"minecraft:stone","nbtCompound":null},{"x":15,"y":40,"z":2,"blockID":"minecraft:iron_block","nbtCompound":null},{"x":0,"y":40,"z":3,"blockID":"minecraft:iron_block","nbtCompound":null},{"x":1,"y":40,"z":3,"blockID":"minecraft:stone","nbtCompound":null},{"x":2,"y":40,"z":3,"blockID":"minecraft:stone","nbtCompound":null},{"x":3,"y":40,"z":3,"blockID":"minecraft:stone","nbtCompound":null},{"x":4,"y":40,"z":3,"blockID":"minecraft:stone","nbtCompound":null},{"x":5,"y":40,"z":3,"blockID":"minecraft:stone","nbtCompound":null},{"x":6,"y":40,"z":3,"blockID":"minecraft:stone","nbtCompound":null},{"x":7,"y":40,"z":3,"blockID":"minecraft:stone","nbtCompound":null},{"x":8,"y":40,"z":3,"blockID":"minecraft:stone","nbtCompound":null},{"x":9,"y":40,"z":3,"blockID":"minecraft:stone","nbtCompound":null},{"x":10,"y":40,"z":3,"blockID":"minecraft:stone","nbtCompound":null},{"x":11,"y":40,"z":3,"blockID":"minecraft:stone","nbtCompound":null},{"x":12,"y":40,"z":3,"blockID":"minecraft:stone","nbtCompound":null},{"x":13,"y":40,"z":3,"blockID":"minecraft:stone","nbtCompound":null},{"x":14,"y":40,"z":3,"blockID":"minecraft:stone","nbtCompound":null},{"x":15,"y":40,"z":3,"blockID":"minecraft:iron_block","nbtCompound":null},{"x":0,"y":40,"z":4,"blockID":"minecraft:iron_block","nbtCompound":null},{"x":1,"y":40,"z":4,"blockID":"minecraft:stone","nbtCompound":null},{"x":2,"y":40,"z":4,"blockID":"minecraft:stone","nbtCompound":null},{"x":3,"y":40,"z":4,"blockID":"minecraft:stone","nbtCompound":null},{"x":4,"y":40,"z":4,"blockID":"minecraft:stone","nbtCompound":null},{"x":5,"y":40,"z":4,"blockID":"minecraft:stone","nbtCompound":null},{"x":6,"y":40,"z":4,"blockID":"minecraft:stone","nbtCompound":null},{"x":7,"y":40,"z":4,"blockID":"minecraft:stone","nbtCompound":null},{"x":8,"y":40,"z":4,"blockID":"minecraft:stone","nbtCompound":null},{"x":9,"y":40,"z":4,"blockID":"minecraft:stone","nbtCompound":null},{"x":10,"y":40,"z":4,"blockID":"minecraft:stone","nbtCompound":null},{"x":11,"y":40,"z":4,"blockID":"minecraft:stone","nbtCompound":null},{"x":12,"y":40,"z":4,"blockID":"minecraft:stone","nbtCompound":null},{"x":13,"y":40,"z":4,"blockID":"minecraft:stone","nbtCompound":null},{"x":14,"y":40,"z":4,"blockID":"minecraft:stone","nbtCompound":null},{"x":15,"y":40,"z":4,"blockID":"minecraft:iron_block","nbtCompound":null},{"x":0,"y":40,"z":5,"blockID":"minecraft:iron_block","nbtCompound":null},{"x":1,"y":40,"z":5,"blockID":"minecraft:stone","nbtCompound":null},{"x":2,"y":40,"z":5,"blockID":"minecraft:stone","nbtCompound":null},{"x":3,"y":40,"z":5,"blockID":"minecraft:stone","nbtCompound":null},{"x":4,"y":40,"z":5,"blockID":"minecraft:stone","nbtCompound":null},{"x":5,"y":40,"z":5,"blockID":"minecraft:stone","nbtCompound":null},{"x":6,"y":40,"z":5,"blockID":"minecraft:stone","nbtCompound":null},{"x":7,"y":40,"z":5,"blockID":"minecraft:stone","nbtCompound":null},{"x":8,"y":40,"z":5,"blockID":"minecraft:stone","nbtCompound":null},{"x":9,"y":40,"z":5,"blockID":"minecraft:stone","nbtCompound":null},{"x":10,"y":40,"z":5,"blockID":"minecraft:stone","nbtCompound":null},{"x":11,"y":40,"z":5,"blockID":"minecraft:stone","nbtCompound":null},{"x":12,"y":40,"z":5,"blockID":"minecraft:stone","nbtCompound":null},{"x":13,"y":40,"z":5,"blockID":"minecraft:stone","nbtCompound":null},{"x":14,"y":40,"z":5,"blockID":"minecraft:stone","nbtCompound":null},{"x":15,"y":40,"z":5,"blockID":"minecraft:iron_block","nbtCompound":null},{"x":0,"y":40,"z":6,"blockID":"minecraft:iron_block","nbtCompound":null},{"x":1,"y":40,"z":6,"blockID":"minecraft:stone","nbtCompound":null},{"x":2,"y":40,"z":6,"blockID":"minecraft:stone","nbtCompound":null},{"x":3,"y":40,"z":6,"blockID":"minecraft:stone","nbtCompound":null},{"x":4,"y":40,"z":6,"blockID":"minecraft:stone","nbtCompound":null},{"x":5,"y":40,"z":6,"blockID":"minecraft:stone","nbtCompound":null},{"x":6,"y":40,"z":6,"blockID":"minecraft:stone","nbtCompound":null},{"x":7,"y":40,"z":6,"blockID":"minecraft:stone","nbtCompound":null},{"x":8,"y":40,"z":6,"blockID":"minecraft:stone","nbtCompound":null},{"x":9,"y":40,"z":6,"blockID":"minecraft:stone","nbtCompound":null},{"x":10,"y":40,"z":6,"blockID":"minecraft:stone","nbtCompound":null},{"x":11,"y":40,"z":6,"blockID":"minecraft:stone","nbtCompound":null},{"x":12,"y":40,"z":6,"blockID":"minecraft:stone","nbtCompound":null},{"x":13,"y":40,"z":6,"blockID":"minecraft:stone","nbtCompound":null},{"x":14,"y":40,"z":6,"blockID":"minecraft:stone","nbtCompound":null},{"x":15,"y":40,"z":6,"blockID":"minecraft:iron_block","nbtCompound":null},{"x":0,"y":40,"z":7,"blockID":"minecraft:iron_block","nbtCompound":null},{"x":1,"y":40,"z":7,"blockID":"minecraft:stone","nbtCompound":null},{"x":2,"y":40,"z":7,"blockID":"minecraft:stone","nbtCompound":null},{"x":3,"y":40,"z":7,"blockID":"minecraft:stone","nbtCompound":null},{"x":4,"y":40,"z":7,"blockID":"minecraft:stone","nbtCompound":null},{"x":5,"y":40,"z":7,"blockID":"minecraft:stone","nbtCompound":null},{"x":6,"y":40,"z":7,"blockID":"minecraft:stone","nbtCompound":null},{"x":7,"y":40,"z":7,"blockID":"minecraft:stone","nbtCompound":null},{"x":8,"y":40,"z":7,"blockID":"minecraft:stone","nbtCompound":null},{"x":9,"y":40,"z":7,"blockID":"minecraft:stone","nbtCompound":null},{"x":10,"y":40,"z":7,"blockID":"minecraft:stone","nbtCompound":null},{"x":11,"y":40,"z":7,"blockID":"minecraft:stone","nbtCompound":null},{"x":12,"y":40,"z":7,"blockID":"minecraft:stone","nbtCompound":null},{"x":13,"y":40,"z":7,"blockID":"minecraft:stone","nbtCompound":null},{"x":14,"y":40,"z":7,"blockID":"minecraft:stone","nbtCompound":null},{"x":15,"y":40,"z":7,"blockID":"minecraft:iron_block","nbtCompound":null},{"x":0,"y":40,"z":8,"blockID":"minecraft:iron_block","nbtCompound":null},{"x":1,"y":40,"z":8,"blockID":"minecraft:stone","nbtCompound":null},{"x":2,"y":40,"z":8,"blockID":"minecraft:stone","nbtCompound":null},{"x":3,"y":40,"z":8,"blockID":"minecraft:stone","nbtCompound":null},{"x":4,"y":40,"z":8,"blockID":"minecraft:stone","nbtCompound":null},{"x":5,"y":40,"z":8,"blockID":"minecraft:stone","nbtCompound":null},{"x":6,"y":40,"z":8,"blockID":"minecraft:stone","nbtCompound":null},{"x":7,"y":40,"z":8,"blockID":"minecraft:stone","nbtCompound":null},{"x":8,"y":40,"z":8,"blockID":"minecraft:stone","nbtCompound":null},{"x":9,"y":40,"z":8,"blockID":"minecraft:stone","nbtCompound":null},{"x":10,"y":40,"z":8,"blockID":"minecraft:stone","nbtCompound":null},{"x":11,"y":40,"z":8,"blockID":"minecraft:stone","nbtCompound":null},{"x":12,"y":40,"z":8,"blockID":"minecraft:stone","nbtCompound":null},{"x":13,"y":40,"z":8,"blockID":"minecraft:stone","nbtCompound":null},{"x":14,"y":40,"z":8,"blockID":"minecraft:stone","nbtCompound":null},{"x":15,"y":40,"z":8,"blockID":"minecraft:iron_block","nbtCompound":null},{"x":0,"y":40,"z":9,"blockID":"minecraft:iron_block","nbtCompound":null},{"x":1,"y":40,"z":9,"blockID":"minecraft:stone","nbtCompound":null},{"x":2,"y":40,"z":9,"blockID":"minecraft:stone","nbtCompound":null},{"x":3,"y":40,"z":9,"blockID":"minecraft:stone","nbtCompound":null},{"x":4,"y":40,"z":9,"blockID":"minecraft:stone","nbtCompound":null},{"x":5,"y":40,"z":9,"blockID":"minecraft:stone","nbtCompound":null},{"x":6,"y":40,"z":9,"blockID":"minecraft:stone","nbtCompound":null},{"x":7,"y":40,"z":9,"blockID":"minecraft:stone","nbtCompound":null},{"x":8,"y":40,"z":9,"blockID":"minecraft:stone","nbtCompound":null},{"x":9,"y":40,"z":9,"blockID":"minecraft:stone","nbtCompound":null},{"x":10,"y":40,"z":9,"blockID":"minecraft:stone","nbtCompound":null},{"x":11,"y":40,"z":9,"blockID":"minecraft:stone","nbtCompound":null},{"x":12,"y":40,"z":9,"blockID":"minecraft:stone","nbtCompound":null},{"x":13,"y":40,"z":9,"blockID":"minecraft:stone","nbtCompound":null},{"x":14,"y":40,"z":9,"blockID":"minecraft:stone","nbtCompound":null},{"x":15,"y":40,"z":9,"blockID":"minecraft:iron_block","nbtCompound":null},{"x":0,"y":40,"z":10,"blockID":"minecraft:iron_block","nbtCompound":null},{"x":1,"y":40,"z":10,"blockID":"minecraft:stone","nbtCompound":null},{"x":2,"y":40,"z":10,"blockID":"minecraft:stone","nbtCompound":null},{"x":3,"y":40,"z":10,"blockID":"minecraft:stone","nbtCompound":null},{"x":4,"y":40,"z":10,"blockID":"minecraft:stone","nbtCompound":null},{"x":5,"y":40,"z":10,"blockID":"minecraft:stone","nbtCompound":null},{"x":6,"y":40,"z":10,"blockID":"minecraft:stone","nbtCompound":null},{"x":7,"y":40,"z":10,"blockID":"minecraft:stone","nbtCompound":null},{"x":8,"y":40,"z":10,"blockID":"minecraft:stone","nbtCompound":null},{"x":9,"y":40,"z":10,"blockID":"minecraft:stone","nbtCompound":null},{"x":10,"y":40,"z":10,"blockID":"minecraft:stone","nbtCompound":null},{"x":11,"y":40,"z":10,"blockID":"minecraft:stone","nbtCompound":null},{"x":12,"y":40,"z":10,"blockID":"minecraft:stone","nbtCompound":null},{"x":13,"y":40,"z":10,"blockID":"minecraft:stone","nbtCompound":null},{"x":14,"y":40,"z":10,"blockID":"minecraft:stone","nbtCompound":null},{"x":15,"y":40,"z":10,"blockID":"minecraft:iron_block","nbtCompound":null},{"x":0,"y":40,"z":11,"blockID":"minecraft:iron_block","nbtCompound":null},{"x":1,"y":40,"z":11,"blockID":"minecraft:stone","nbtCompound":null},{"x":2,"y":40,"z":11,"blockID":"minecraft:stone","nbtCompound":null},{"x":3,"y":40,"z":11,"blockID":"minecraft:stone","nbtCompound":null},{"x":4,"y":40,"z":11,"blockID":"minecraft:stone","nbtCompound":null},{"x":5,"y":40,"z":11,"blockID":"minecraft:stone","nbtCompound":null},{"x":6,"y":40,"z":11,"blockID":"minecraft:stone","nbtCompound":null},{"x":7,"y":40,"z":11,"blockID":"minecraft:stone","nbtCompound":null},{"x":8,"y":40,"z":11,"blockID":"minecraft:stone","nbtCompound":null},{"x":9,"y":40,"z":11,"blockID":"minecraft:stone","nbtCompound":null},{"x":10,"y":40,"z":11,"blockID":"minecraft:stone","nbtCompound":null},{"x":11,"y":40,"z":11,"blockID":"minecraft:stone","nbtCompound":null},{"x":12,"y":40,"z":11,"blockID":"minecraft:stone","nbtCompound":null},{"x":13,"y":40,"z":11,"blockID":"minecraft:stone","nbtCompound":null},{"x":14,"y":40,"z":11,"blockID":"minecraft:stone","nbtCompound":null},{"x":15,"y":40,"z":11,"blockID":"minecraft:iron_block","nbtCompound":null},{"x":0,"y":40,"z":12,"blockID":"minecraft:iron_block","nbtCompound":null},{"x":1,"y":40,"z":12,"blockID":"minecraft:stone","nbtCompound":null},{"x":2,"y":40,"z":12,"blockID":"minecraft:stone","nbtCompound":null},{"x":3,"y":40,"z":12,"blockID":"minecraft:stone","nbtCompound":null},{"x":4,"y":40,"z":12,"blockID":"minecraft:stone","nbtCompound":null},{"x":5,"y":40,"z":12,"blockID":"minecraft:stone","nbtCompound":null},{"x":6,"y":40,"z":12,"blockID":"minecraft:stone","nbtCompound":null},{"x":7,"y":40,"z":12,"blockID":"minecraft:stone","nbtCompound":null},{"x":8,"y":40,"z":12,"blockID":"minecraft:stone","nbtCompound":null},{"x":9,"y":40,"z":12,"blockID":"minecraft:stone","nbtCompound":null},{"x":10,"y":40,"z":12,"blockID":"minecraft:stone","nbtCompound":null},{"x":11,"y":40,"z":12,"blockID":"minecraft:stone","nbtCompound":null},{"x":12,"y":40,"z":12,"blockID":"minecraft:stone","nbtCompound":null},{"x":13,"y":40,"z":12,"blockID":"minecraft:stone","nbtCompound":null},{"x":14,"y":40,"z":12,"blockID":"minecraft:stone","nbtCompound":null},{"x":15,"y":40,"z":12,"blockID":"minecraft:iron_block","nbtCompound":null},{"x":0,"y":40,"z":13,"blockID":"minecraft:iron_block","nbtCompound":null},{"x":1,"y":40,"z":13,"blockID":"minecraft:stone","nbtCompound":null},{"x":2,"y":40,"z":13,"blockID":"minecraft:stone","nbtCompound":null},{"x":3,"y":40,"z":13,"blockID":"minecraft:stone","nbtCompound":null},{"x":4,"y":40,"z":13,"blockID":"minecraft:stone","nbtCompound":null},{"x":5,"y":40,"z":13,"blockID":"minecraft:stone","nbtCompound":null},{"x":6,"y":40,"z":13,"blockID":"minecraft:stone","nbtCompound":null},{"x":7,"y":40,"z":13,"blockID":"minecraft:stone","nbtCompound":null},{"x":8,"y":40,"z":13,"blockID":"minecraft:stone","nbtCompound":null},{"x":9,"y":40,"z":13,"blockID":"minecraft:stone","nbtCompound":null},{"x":10,"y":40,"z":13,"blockID":"minecraft:stone","nbtCompound":null},{"x":11,"y":40,"z":13,"blockID":"minecraft:stone","nbtCompound":null},{"x":12,"y":40,"z":13,"blockID":"minecraft:stone","nbtCompound":null},{"x":13,"y":40,"z":13,"blockID":"minecraft:stone","nbtCompound":null},{"x":14,"y":40,"z":13,"blockID":"minecraft:stone","nbtCompound":null},{"x":15,"y":40,"z":13,"blockID":"minecraft:iron_block","nbtCompound":null},{"x":0,"y":40,"z":14,"blockID":"minecraft:iron_block","nbtCompound":null},{"x":1,"y":40,"z":14,"blockID":"minecraft:stone","nbtCompound":null},{"x":2,"y":40,"z":14,"blockID":"minecraft:stone","nbtCompound":null},{"x":3,"y":40,"z":14,"blockID":"minecraft:stone","nbtCompound":null},{"x":4,"y":40,"z":14,"blockID":"minecraft:stone","nbtCompound":null},{"x":5,"y":40,"z":14,"blockID":"minecraft:stone","nbtCompound":null},{"x":6,"y":40,"z":14,"blockID":"minecraft:stone","nbtCompound":null},{"x":7,"y":40,"z":14,"blockID":"minecraft:stone","nbtCompound":null},{"x":8,"y":40,"z":14,"blockID":"minecraft:stone","nbtCompound":null},{"x":9,"y":40,"z":14,"blockID":"minecraft:stone","nbtCompound":null},{"x":10,"y":40,"z":14,"blockID":"minecraft:stone","nbtCompound":null},{"x":11,"y":40,"z":14,"blockID":"minecraft:stone","nbtCompound":null},{"x":12,"y":40,"z":14,"blockID":"minecraft:stone","nbtCompound":null},{"x":13,"y":40,"z":14,"blockID":"minecraft:stone","nbtCompound":null},{"x":14,"y":40,"z":14,"blockID":"minecraft:stone","nbtCompound":null},{"x":15,"y":40,"z":14,"blockID":"minecraft:iron_block","nbtCompound":null},{"x":0,"y":40,"z":15,"blockID":"minecraft:iron_block","nbtCompound":null},{"x":1,"y":40,"z":15,"blockID":"minecraft:iron_block","nbtCompound":null},{"x":2,"y":40,"z":15,"blockID":"minecraft:iron_block","nbtCompound":null},{"x":3,"y":40,"z":15,"blockID":"minecraft:iron_block","nbtCompound":null},{"x":4,"y":40,"z":15,"blockID":"minecraft:iron_block","nbtCompound":null},{"x":5,"y":40,"z":15,"blockID":"minecraft:iron_block","nbtCompound":null},{"x":6,"y":40,"z":15,"blockID":"minecraft:iron_block","nbtCompound":null},{"x":7,"y":40,"z":15,"blockID":"minecraft:iron_block","nbtCompound":null},{"x":8,"y":40,"z":15,"blockID":"minecraft:iron_block","nbtCompound":null},{"x":9,"y":40,"z":15,"blockID":"minecraft:iron_block","nbtCompound":null},{"x":10,"y":40,"z":15,"blockID":"minecraft:iron_block","nbtCompound":null},{"x":11,"y":40,"z":15,"blockID":"minecraft:iron_block","nbtCompound":null},{"x":12,"y":40,"z":15,"blockID":"minecraft:iron_block","nbtCompound":null},{"x":13,"y":40,"z":15,"blockID":"minecraft:iron_block","nbtCompound":null},{"x":14,"y":40,"z":15,"blockID":"minecraft:iron_block","nbtCompound":null},{"x":15,"y":40,"z":15,"blockID":"minecraft:iron_block","nbtCompound":null}]
+[
+  {
+    "x": 0,
+    "y": 40,
+    "z": 0,
+    "blockID": "minecraft:iron_block",
+    "nbtCompound": null
+  },
+  {
+    "x": 1,
+    "y": 40,
+    "z": 0,
+    "blockID": "minecraft:iron_block",
+    "nbtCompound": null
+  },
+  {
+    "x": 2,
+    "y": 40,
+    "z": 0,
+    "blockID": "minecraft:iron_block",
+    "nbtCompound": null
+  },
+  {
+    "x": 3,
+    "y": 40,
+    "z": 0,
+    "blockID": "minecraft:iron_block",
+    "nbtCompound": null
+  },
+  {
+    "x": 4,
+    "y": 40,
+    "z": 0,
+    "blockID": "minecraft:iron_block",
+    "nbtCompound": null
+  },
+  {
+    "x": 5,
+    "y": 40,
+    "z": 0,
+    "blockID": "minecraft:iron_block",
+    "nbtCompound": null
+  },
+  {
+    "x": 6,
+    "y": 40,
+    "z": 0,
+    "blockID": "minecraft:iron_block",
+    "nbtCompound": null
+  },
+  {
+    "x": 7,
+    "y": 40,
+    "z": 0,
+    "blockID": "minecraft:iron_block",
+    "nbtCompound": null
+  },
+  {
+    "x": 8,
+    "y": 40,
+    "z": 0,
+    "blockID": "minecraft:iron_block",
+    "nbtCompound": null
+  },
+  {
+    "x": 9,
+    "y": 40,
+    "z": 0,
+    "blockID": "minecraft:iron_block",
+    "nbtCompound": null
+  },
+  {
+    "x": 10,
+    "y": 40,
+    "z": 0,
+    "blockID": "minecraft:iron_block",
+    "nbtCompound": null
+  },
+  {
+    "x": 11,
+    "y": 40,
+    "z": 0,
+    "blockID": "minecraft:iron_block",
+    "nbtCompound": null
+  },
+  {
+    "x": 12,
+    "y": 40,
+    "z": 0,
+    "blockID": "minecraft:iron_block",
+    "nbtCompound": null
+  },
+  {
+    "x": 13,
+    "y": 40,
+    "z": 0,
+    "blockID": "minecraft:iron_block",
+    "nbtCompound": null
+  },
+  {
+    "x": 14,
+    "y": 40,
+    "z": 0,
+    "blockID": "minecraft:iron_block",
+    "nbtCompound": null
+  },
+  {
+    "x": 15,
+    "y": 40,
+    "z": 0,
+    "blockID": "minecraft:iron_block",
+    "nbtCompound": null
+  },
+  {
+    "x": 0,
+    "y": 40,
+    "z": 1,
+    "blockID": "minecraft:iron_block",
+    "nbtCompound": null
+  },
+  {
+    "x": 1,
+    "y": 40,
+    "z": 1,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 2,
+    "y": 40,
+    "z": 1,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 3,
+    "y": 40,
+    "z": 1,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 4,
+    "y": 40,
+    "z": 1,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 5,
+    "y": 40,
+    "z": 1,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 6,
+    "y": 40,
+    "z": 1,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 7,
+    "y": 40,
+    "z": 1,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 8,
+    "y": 40,
+    "z": 1,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 9,
+    "y": 40,
+    "z": 1,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 10,
+    "y": 40,
+    "z": 1,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 11,
+    "y": 40,
+    "z": 1,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 12,
+    "y": 40,
+    "z": 1,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 13,
+    "y": 40,
+    "z": 1,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 14,
+    "y": 40,
+    "z": 1,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 15,
+    "y": 40,
+    "z": 1,
+    "blockID": "minecraft:iron_block",
+    "nbtCompound": null
+  },
+  {
+    "x": 0,
+    "y": 40,
+    "z": 2,
+    "blockID": "minecraft:iron_block",
+    "nbtCompound": null
+  },
+  {
+    "x": 1,
+    "y": 40,
+    "z": 2,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 2,
+    "y": 40,
+    "z": 2,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 3,
+    "y": 40,
+    "z": 2,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 4,
+    "y": 40,
+    "z": 2,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 5,
+    "y": 40,
+    "z": 2,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 6,
+    "y": 40,
+    "z": 2,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 7,
+    "y": 40,
+    "z": 2,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 8,
+    "y": 40,
+    "z": 2,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 9,
+    "y": 40,
+    "z": 2,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 10,
+    "y": 40,
+    "z": 2,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 11,
+    "y": 40,
+    "z": 2,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 12,
+    "y": 40,
+    "z": 2,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 13,
+    "y": 40,
+    "z": 2,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 14,
+    "y": 40,
+    "z": 2,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 15,
+    "y": 40,
+    "z": 2,
+    "blockID": "minecraft:iron_block",
+    "nbtCompound": null
+  },
+  {
+    "x": 0,
+    "y": 40,
+    "z": 3,
+    "blockID": "minecraft:iron_block",
+    "nbtCompound": null
+  },
+  {
+    "x": 1,
+    "y": 40,
+    "z": 3,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 2,
+    "y": 40,
+    "z": 3,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 3,
+    "y": 40,
+    "z": 3,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 4,
+    "y": 40,
+    "z": 3,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 5,
+    "y": 40,
+    "z": 3,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 6,
+    "y": 40,
+    "z": 3,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 7,
+    "y": 40,
+    "z": 3,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 8,
+    "y": 40,
+    "z": 3,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 9,
+    "y": 40,
+    "z": 3,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 10,
+    "y": 40,
+    "z": 3,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 11,
+    "y": 40,
+    "z": 3,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 12,
+    "y": 40,
+    "z": 3,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 13,
+    "y": 40,
+    "z": 3,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 14,
+    "y": 40,
+    "z": 3,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 15,
+    "y": 40,
+    "z": 3,
+    "blockID": "minecraft:iron_block",
+    "nbtCompound": null
+  },
+  {
+    "x": 0,
+    "y": 40,
+    "z": 4,
+    "blockID": "minecraft:iron_block",
+    "nbtCompound": null
+  },
+  {
+    "x": 1,
+    "y": 40,
+    "z": 4,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 2,
+    "y": 40,
+    "z": 4,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 3,
+    "y": 40,
+    "z": 4,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 4,
+    "y": 40,
+    "z": 4,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 5,
+    "y": 40,
+    "z": 4,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 6,
+    "y": 40,
+    "z": 4,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 7,
+    "y": 40,
+    "z": 4,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 8,
+    "y": 40,
+    "z": 4,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 9,
+    "y": 40,
+    "z": 4,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 10,
+    "y": 40,
+    "z": 4,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 11,
+    "y": 40,
+    "z": 4,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 12,
+    "y": 40,
+    "z": 4,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 13,
+    "y": 40,
+    "z": 4,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 14,
+    "y": 40,
+    "z": 4,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 15,
+    "y": 40,
+    "z": 4,
+    "blockID": "minecraft:iron_block",
+    "nbtCompound": null
+  },
+  {
+    "x": 0,
+    "y": 40,
+    "z": 5,
+    "blockID": "minecraft:iron_block",
+    "nbtCompound": null
+  },
+  {
+    "x": 1,
+    "y": 40,
+    "z": 5,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 2,
+    "y": 40,
+    "z": 5,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 3,
+    "y": 40,
+    "z": 5,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 4,
+    "y": 40,
+    "z": 5,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 5,
+    "y": 40,
+    "z": 5,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 6,
+    "y": 40,
+    "z": 5,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 7,
+    "y": 40,
+    "z": 5,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 8,
+    "y": 40,
+    "z": 5,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 9,
+    "y": 40,
+    "z": 5,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 10,
+    "y": 40,
+    "z": 5,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 11,
+    "y": 40,
+    "z": 5,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 12,
+    "y": 40,
+    "z": 5,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 13,
+    "y": 40,
+    "z": 5,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 14,
+    "y": 40,
+    "z": 5,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 15,
+    "y": 40,
+    "z": 5,
+    "blockID": "minecraft:iron_block",
+    "nbtCompound": null
+  },
+  {
+    "x": 0,
+    "y": 40,
+    "z": 6,
+    "blockID": "minecraft:iron_block",
+    "nbtCompound": null
+  },
+  {
+    "x": 1,
+    "y": 40,
+    "z": 6,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 2,
+    "y": 40,
+    "z": 6,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 3,
+    "y": 40,
+    "z": 6,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 4,
+    "y": 40,
+    "z": 6,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 5,
+    "y": 40,
+    "z": 6,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 6,
+    "y": 40,
+    "z": 6,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 7,
+    "y": 40,
+    "z": 6,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 8,
+    "y": 40,
+    "z": 6,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 9,
+    "y": 40,
+    "z": 6,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 10,
+    "y": 40,
+    "z": 6,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 11,
+    "y": 40,
+    "z": 6,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 12,
+    "y": 40,
+    "z": 6,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 13,
+    "y": 40,
+    "z": 6,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 14,
+    "y": 40,
+    "z": 6,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 15,
+    "y": 40,
+    "z": 6,
+    "blockID": "minecraft:iron_block",
+    "nbtCompound": null
+  },
+  {
+    "x": 0,
+    "y": 40,
+    "z": 7,
+    "blockID": "minecraft:iron_block",
+    "nbtCompound": null
+  },
+  {
+    "x": 1,
+    "y": 40,
+    "z": 7,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 2,
+    "y": 40,
+    "z": 7,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 3,
+    "y": 40,
+    "z": 7,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 4,
+    "y": 40,
+    "z": 7,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 5,
+    "y": 40,
+    "z": 7,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 6,
+    "y": 40,
+    "z": 7,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 7,
+    "y": 40,
+    "z": 7,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 8,
+    "y": 40,
+    "z": 7,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 9,
+    "y": 40,
+    "z": 7,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 10,
+    "y": 40,
+    "z": 7,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 11,
+    "y": 40,
+    "z": 7,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 12,
+    "y": 40,
+    "z": 7,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 13,
+    "y": 40,
+    "z": 7,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 14,
+    "y": 40,
+    "z": 7,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 15,
+    "y": 40,
+    "z": 7,
+    "blockID": "minecraft:iron_block",
+    "nbtCompound": null
+  },
+  {
+    "x": 0,
+    "y": 40,
+    "z": 8,
+    "blockID": "minecraft:iron_block",
+    "nbtCompound": null
+  },
+  {
+    "x": 1,
+    "y": 40,
+    "z": 8,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 2,
+    "y": 40,
+    "z": 8,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 3,
+    "y": 40,
+    "z": 8,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 4,
+    "y": 40,
+    "z": 8,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 5,
+    "y": 40,
+    "z": 8,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 6,
+    "y": 40,
+    "z": 8,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 7,
+    "y": 40,
+    "z": 8,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 8,
+    "y": 40,
+    "z": 8,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 9,
+    "y": 40,
+    "z": 8,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 10,
+    "y": 40,
+    "z": 8,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 11,
+    "y": 40,
+    "z": 8,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 12,
+    "y": 40,
+    "z": 8,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 13,
+    "y": 40,
+    "z": 8,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 14,
+    "y": 40,
+    "z": 8,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 15,
+    "y": 40,
+    "z": 8,
+    "blockID": "minecraft:iron_block",
+    "nbtCompound": null
+  },
+  {
+    "x": 0,
+    "y": 40,
+    "z": 9,
+    "blockID": "minecraft:iron_block",
+    "nbtCompound": null
+  },
+  {
+    "x": 1,
+    "y": 40,
+    "z": 9,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 2,
+    "y": 40,
+    "z": 9,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 3,
+    "y": 40,
+    "z": 9,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 4,
+    "y": 40,
+    "z": 9,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 5,
+    "y": 40,
+    "z": 9,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 6,
+    "y": 40,
+    "z": 9,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 7,
+    "y": 40,
+    "z": 9,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 8,
+    "y": 40,
+    "z": 9,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 9,
+    "y": 40,
+    "z": 9,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 10,
+    "y": 40,
+    "z": 9,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 11,
+    "y": 40,
+    "z": 9,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 12,
+    "y": 40,
+    "z": 9,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 13,
+    "y": 40,
+    "z": 9,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 14,
+    "y": 40,
+    "z": 9,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 15,
+    "y": 40,
+    "z": 9,
+    "blockID": "minecraft:iron_block",
+    "nbtCompound": null
+  },
+  {
+    "x": 0,
+    "y": 40,
+    "z": 10,
+    "blockID": "minecraft:iron_block",
+    "nbtCompound": null
+  },
+  {
+    "x": 1,
+    "y": 40,
+    "z": 10,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 2,
+    "y": 40,
+    "z": 10,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 3,
+    "y": 40,
+    "z": 10,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 4,
+    "y": 40,
+    "z": 10,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 5,
+    "y": 40,
+    "z": 10,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 6,
+    "y": 40,
+    "z": 10,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 7,
+    "y": 40,
+    "z": 10,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 8,
+    "y": 40,
+    "z": 10,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 9,
+    "y": 40,
+    "z": 10,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 10,
+    "y": 40,
+    "z": 10,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 11,
+    "y": 40,
+    "z": 10,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 12,
+    "y": 40,
+    "z": 10,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 13,
+    "y": 40,
+    "z": 10,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 14,
+    "y": 40,
+    "z": 10,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 15,
+    "y": 40,
+    "z": 10,
+    "blockID": "minecraft:iron_block",
+    "nbtCompound": null
+  },
+  {
+    "x": 0,
+    "y": 40,
+    "z": 11,
+    "blockID": "minecraft:iron_block",
+    "nbtCompound": null
+  },
+  {
+    "x": 1,
+    "y": 40,
+    "z": 11,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 2,
+    "y": 40,
+    "z": 11,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 3,
+    "y": 40,
+    "z": 11,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 4,
+    "y": 40,
+    "z": 11,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 5,
+    "y": 40,
+    "z": 11,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 6,
+    "y": 40,
+    "z": 11,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 7,
+    "y": 40,
+    "z": 11,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 8,
+    "y": 40,
+    "z": 11,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 9,
+    "y": 40,
+    "z": 11,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 10,
+    "y": 40,
+    "z": 11,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 11,
+    "y": 40,
+    "z": 11,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 12,
+    "y": 40,
+    "z": 11,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 13,
+    "y": 40,
+    "z": 11,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 14,
+    "y": 40,
+    "z": 11,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 15,
+    "y": 40,
+    "z": 11,
+    "blockID": "minecraft:iron_block",
+    "nbtCompound": null
+  },
+  {
+    "x": 0,
+    "y": 40,
+    "z": 12,
+    "blockID": "minecraft:iron_block",
+    "nbtCompound": null
+  },
+  {
+    "x": 1,
+    "y": 40,
+    "z": 12,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 2,
+    "y": 40,
+    "z": 12,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 3,
+    "y": 40,
+    "z": 12,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 4,
+    "y": 40,
+    "z": 12,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 5,
+    "y": 40,
+    "z": 12,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 6,
+    "y": 40,
+    "z": 12,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 7,
+    "y": 40,
+    "z": 12,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 8,
+    "y": 40,
+    "z": 12,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 9,
+    "y": 40,
+    "z": 12,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 10,
+    "y": 40,
+    "z": 12,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 11,
+    "y": 40,
+    "z": 12,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 12,
+    "y": 40,
+    "z": 12,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 13,
+    "y": 40,
+    "z": 12,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 14,
+    "y": 40,
+    "z": 12,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 15,
+    "y": 40,
+    "z": 12,
+    "blockID": "minecraft:iron_block",
+    "nbtCompound": null
+  },
+  {
+    "x": 0,
+    "y": 40,
+    "z": 13,
+    "blockID": "minecraft:iron_block",
+    "nbtCompound": null
+  },
+  {
+    "x": 1,
+    "y": 40,
+    "z": 13,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 2,
+    "y": 40,
+    "z": 13,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 3,
+    "y": 40,
+    "z": 13,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 4,
+    "y": 40,
+    "z": 13,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 5,
+    "y": 40,
+    "z": 13,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 6,
+    "y": 40,
+    "z": 13,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 7,
+    "y": 40,
+    "z": 13,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 8,
+    "y": 40,
+    "z": 13,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 9,
+    "y": 40,
+    "z": 13,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 10,
+    "y": 40,
+    "z": 13,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 11,
+    "y": 40,
+    "z": 13,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 12,
+    "y": 40,
+    "z": 13,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 13,
+    "y": 40,
+    "z": 13,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 14,
+    "y": 40,
+    "z": 13,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 15,
+    "y": 40,
+    "z": 13,
+    "blockID": "minecraft:iron_block",
+    "nbtCompound": null
+  },
+  {
+    "x": 0,
+    "y": 40,
+    "z": 14,
+    "blockID": "minecraft:iron_block",
+    "nbtCompound": null
+  },
+  {
+    "x": 1,
+    "y": 40,
+    "z": 14,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 2,
+    "y": 40,
+    "z": 14,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 3,
+    "y": 40,
+    "z": 14,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 4,
+    "y": 40,
+    "z": 14,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 5,
+    "y": 40,
+    "z": 14,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 6,
+    "y": 40,
+    "z": 14,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 7,
+    "y": 40,
+    "z": 14,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 8,
+    "y": 40,
+    "z": 14,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 9,
+    "y": 40,
+    "z": 14,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 10,
+    "y": 40,
+    "z": 14,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 11,
+    "y": 40,
+    "z": 14,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 12,
+    "y": 40,
+    "z": 14,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 13,
+    "y": 40,
+    "z": 14,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 14,
+    "y": 40,
+    "z": 14,
+    "blockID": "minecraft:stone",
+    "nbtCompound": null
+  },
+  {
+    "x": 15,
+    "y": 40,
+    "z": 14,
+    "blockID": "minecraft:iron_block",
+    "nbtCompound": null
+  },
+  {
+    "x": 0,
+    "y": 40,
+    "z": 15,
+    "blockID": "minecraft:iron_block",
+    "nbtCompound": null
+  },
+  {
+    "x": 1,
+    "y": 40,
+    "z": 15,
+    "blockID": "minecraft:iron_block",
+    "nbtCompound": null
+  },
+  {
+    "x": 2,
+    "y": 40,
+    "z": 15,
+    "blockID": "minecraft:iron_block",
+    "nbtCompound": null
+  },
+  {
+    "x": 3,
+    "y": 40,
+    "z": 15,
+    "blockID": "minecraft:iron_block",
+    "nbtCompound": null
+  },
+  {
+    "x": 4,
+    "y": 40,
+    "z": 15,
+    "blockID": "minecraft:iron_block",
+    "nbtCompound": null
+  },
+  {
+    "x": 5,
+    "y": 40,
+    "z": 15,
+    "blockID": "minecraft:iron_block",
+    "nbtCompound": null
+  },
+  {
+    "x": 6,
+    "y": 40,
+    "z": 15,
+    "blockID": "minecraft:iron_block",
+    "nbtCompound": null
+  },
+  {
+    "x": 7,
+    "y": 40,
+    "z": 15,
+    "blockID": "minecraft:iron_block",
+    "nbtCompound": null
+  },
+  {
+    "x": 8,
+    "y": 40,
+    "z": 15,
+    "blockID": "minecraft:iron_block",
+    "nbtCompound": null
+  },
+  {
+    "x": 9,
+    "y": 40,
+    "z": 15,
+    "blockID": "minecraft:iron_block",
+    "nbtCompound": null
+  },
+  {
+    "x": 10,
+    "y": 40,
+    "z": 15,
+    "blockID": "minecraft:iron_block",
+    "nbtCompound": null
+  },
+  {
+    "x": 11,
+    "y": 40,
+    "z": 15,
+    "blockID": "minecraft:iron_block",
+    "nbtCompound": null
+  },
+  {
+    "x": 12,
+    "y": 40,
+    "z": 15,
+    "blockID": "minecraft:iron_block",
+    "nbtCompound": null
+  },
+  {
+    "x": 13,
+    "y": 40,
+    "z": 15,
+    "blockID": "minecraft:iron_block",
+    "nbtCompound": null
+  },
+  {
+    "x": 14,
+    "y": 40,
+    "z": 15,
+    "blockID": "minecraft:iron_block",
+    "nbtCompound": null
+  },
+  {
+    "x": 15,
+    "y": 40,
+    "z": 15,
+    "blockID": "minecraft:iron_block",
+    "nbtCompound": null
+  }
+]

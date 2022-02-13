@@ -15,11 +15,11 @@ public class MapPos {
     int y;
     int z;
 
-    public int getLeft(){
+    public int getLeft() {
         return z;
     }
 
-    public int getTop(){
+    public int getTop() {
         return y;
     }
 }

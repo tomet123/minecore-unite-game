@@ -42,12 +42,11 @@ public class SpawnGenerator implements ChunkGenerator {
     @Override
     public void generateChunkData(ChunkBatch batch, int chunkX, int chunkZ) {
         try {
-            JsonWorldPlacer.generateFromJson("world/lobby",batch,chunkX,chunkZ);
+            JsonWorldPlacer.generateFromJson("world/lobby", batch, chunkX, chunkZ);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-
 
 
     @Override
