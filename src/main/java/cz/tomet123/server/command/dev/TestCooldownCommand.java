@@ -30,7 +30,11 @@ public class TestCooldownCommand extends Command {
         Thread.sleep(1000);
 
         p.useEffect(1);
-        Thread.sleep(1000);
+
+        while (!p.canUseEffect(1)){
+            Thread.sleep(100);
+            System.out.println("Check "+p.canUseEffect(1));
+        };
 
         p.sendMessage("can use agin"+p.canUseEffect(1));
     }

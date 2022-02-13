@@ -12,6 +12,7 @@ import net.minestom.server.network.packet.server.play.SetCooldownPacket;
 import net.minestom.server.network.player.PlayerConnection;
 import net.minestom.server.scoreboard.Team;
 import net.minestom.server.scoreboard.TeamBuilder;
+import net.minestom.server.timer.ExecutionType;
 import net.minestom.server.timer.SchedulerManager;
 import net.minestom.server.timer.Task;
 import net.minestom.server.utils.time.TimeUnit;
@@ -51,7 +52,6 @@ public class GamePlayer extends Player {
     //spells
     private Map<Integer, SpellPlayerData> spells =new HashMap<>();
 
-    private Semaphore effectSemaphor = new Semaphore(1);
 
 
     public GamePlayer(@NotNull UUID uuid, @NotNull String username, @NotNull PlayerConnection playerConnection) {
@@ -61,11 +61,11 @@ public class GamePlayer extends Player {
 
 
         //TODO temp added spell - add to kits
-        spells.put(1,new SpellPlayerData(false,0,10,0,new ExampleSpell()));
+        spells.put(1,new SpellPlayerData(SpellPlayerData.state.DISABLED,10,new ExampleSpell()));
 
 
         SchedulerManager scheduler = MinecraftServer.getSchedulerManager();
-        scheduler.buildTask(() -> updateEffectCooldown()).repeat(1, TimeUnit.CLIENT_TICK).schedule();
+        scheduler.buildTask(() -> updateEffectCooldown()).executionType(ExecutionType.ASYNC).repeat(1, TimeUnit.CLIENT_TICK).schedule();
     }
 
     @Override
@@ -105,98 +105,75 @@ public class GamePlayer extends Player {
     }
 
     private void updateEffectCooldown(){
-        while (effectSemaphor.hasQueuedThreads());
-        try{
-            effectSemaphor.acquire();
+
             spells.forEach((integer, spellPlayerData) -> {
-                if (!spellPlayerData.isActive()) {
-                    if (spellPlayerData.getLastSendDisable() < UPDATE_DISABLED_SPELLS) {
-                        spellPlayerData.setLastSendDisable(spellPlayerData.getLastSendDisable() + 1);
-                    } else {
-                        spellPlayerData.setLastSendDisable(0);
-                        getPlayerConnection().sendPacket(new SetCooldownPacket(getInventory().getItemStack(integer).getMaterial().id(), DISABLED_SPELLS_TIME));
+                switch (spellPlayerData.getState()){
+                    case DISABLED -> {
+                        if (spellPlayerData.getLastSendDisable() < UPDATE_DISABLED_SPELLS) {
+                            spellPlayerData.setLastSendDisable(spellPlayerData.getLastSendDisable() + 1);
+                        } else {
+                            spellPlayerData.setLastSendDisable(0);
+                            getPlayerConnection().sendPacket(new SetCooldownPacket(getInventory().getItemStack(integer).getMaterial().id(), DISABLED_SPELLS_TIME));
+                        }
                     }
-                }else if (spellPlayerData.getCooldownCounter()>0) {
-                    spellPlayerData.setCooldownCounter(spellPlayerData.getCooldownCounter()-1);
+                    case COOLDOWN -> {
+                        if (spellPlayerData.getCooldownCounter()>0) {
+                            spellPlayerData.setCooldownCounter(spellPlayerData.getCooldownCounter()-1);
+                        }else spellPlayerData.setState(SpellPlayerData.state.READY);
+                    }
+                    case READY -> {
+                        if(spellPlayerData.getCooldownCounter()!=0)
+                        spellPlayerData.setCooldownCounter(0);
+                        if(spellPlayerData.getLastSendDisable()!=0)
+                            spellPlayerData.setLastSendDisable(0);
+                    }
                 }
-
-
-
             });
-        }catch (InterruptedException e){
-            e.printStackTrace();
-        }
-       effectSemaphor.release();
+
     }
 
     public void enableEffect(int id){
         if(spells.get(id)==null) return;
-        while (effectSemaphor.hasQueuedThreads());
-        try {
-            effectSemaphor.acquire();
-            if (!spells.get(id).isActive()) {
+            if (spells.get(id).getState().equals(SpellPlayerData.state.DISABLED)) {
+                spells.get(id).setState(SpellPlayerData.state.READY);
                 spells.get(id).setLastSendDisable(0);
-                spells.get(id).setActive(true);
                 getPlayerConnection().sendPacket(new SetCooldownPacket(getInventory().getItemStack(id).getMaterial().id(), 0));
             }
-
-        }catch (InterruptedException e){
-            e.printStackTrace();
-        }
-        effectSemaphor.release();
     }
 
     public void disableEffect(int id){
         if(spells.get(id)==null) return;
-        while (effectSemaphor.hasQueuedThreads());
-        try {
-            effectSemaphor.acquire();
-            if (spells.get(id).isActive()) {
+
+            if (spells.get(id).getState().equals(SpellPlayerData.state.READY)) {
+                spells.get(id).setState(SpellPlayerData.state.DISABLED);
                 spells.get(id).setLastSendDisable(0);
-                spells.get(id).setActive(false);
                 getPlayerConnection().sendPacket(new SetCooldownPacket(getInventory().getItemStack(id).getMaterial().id(), DISABLED_SPELLS_TIME));
             }
 
-        }catch (InterruptedException e){
-            e.printStackTrace();
-        }
-        effectSemaphor.release();
+
     }
 
 
     public void useEffect(int id){
         if(spells.get(id)==null) return;
-        while (effectSemaphor.hasQueuedThreads());
-        try {
-            effectSemaphor.acquire();
+        if(spells.get(id).getState().equals(SpellPlayerData.state.READY)){
+            spells.get(id).setState(SpellPlayerData.state.COOLDOWN);
             spells.get(id).setCooldownCounter(spells.get(id).getCooldown());
             getPlayerConnection().sendPacket(new SetCooldownPacket(getInventory().getItemStack(id).getMaterial().id(), spells.get(id).getCooldownCounter()));
-
-        }catch (InterruptedException e){
-            e.printStackTrace();
         }
-        effectSemaphor.release();
+
 
 
     }
 
     public boolean canUseEffect(int id){
         if(spells.get(id)==null) return false;
-        while (effectSemaphor.hasQueuedThreads());
-        try {
-            effectSemaphor.acquire();
-            if(spells.get(id).getCooldownCounter()==0) {
-                getPlayerConnection().sendPacket(new SetCooldownPacket(getInventory().getItemStack(id).getMaterial().id(), 0));
+
+            if(spells.get(id).getState().equals(SpellPlayerData.state.READY)){
                 return true;
             }
-        }catch (InterruptedException e){
-            e.printStackTrace();
-        }
-        effectSemaphor.release();
+
         return false;
-
-
-
 
     }
 

@@ -5,6 +5,7 @@ import cz.tomet123.server.command.dev.*;
 import cz.tomet123.server.event.EventImpl;
 import cz.tomet123.server.map.LobbyMapMonitor;
 import cz.tomet123.server.world.SpawnGenerator;
+import cz.tomet123.server.world.StoneGenerator;
 import net.minestom.server.MinecraftServer;
 import net.minestom.server.coordinate.Pos;
 import net.minestom.server.entity.GameMode;
@@ -46,6 +47,7 @@ public class Server {
 
         serverOptions();
         initLobby();
+        initGame();
         if (DEV) dev();
         events();
         EventImpl.inicialize();
@@ -71,6 +73,12 @@ public class Server {
 
     }
 
+    private void initGame() {
+        gameInstance = instanceManager.createInstanceContainer(generateFullLightDim());
+        gameInstance.setChunkGenerator(new StoneGenerator());
+
+    }
+
     private void serverOptions() {
         OptifineSupport.enable();
         PlacementRules.init();
@@ -91,7 +99,7 @@ public class Server {
 
         playerNode.addListener(PlayerLoginEvent.class, event -> {
             final Player player = event.getPlayer();
-            event.setSpawningInstance(lobbyInstance);
+            event.setSpawningInstance(gameInstance);
             player.setRespawnPoint(new Pos(Chunk.CHUNK_SIZE_X / 2, 42, Chunk.CHUNK_SIZE_Z / 2));
             if(!Server.DEV)player.setGameMode(GameMode.SURVIVAL);
             else player.setGameMode(GameMode.CREATIVE);

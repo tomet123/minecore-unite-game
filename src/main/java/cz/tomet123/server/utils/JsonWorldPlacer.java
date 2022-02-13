@@ -7,6 +7,7 @@ import net.minestom.server.instance.block.Block;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class JsonWorldPlacer {
 
@@ -17,7 +18,7 @@ public class JsonWorldPlacer {
             List<BlockWitPosJson> blockWitPosList = objectMapper.readValue(
                     JsonWorldPlacer.class.getResourceAsStream("/" + world + "/" + chunkX + "-" + chunkZ + ".json"),
                     objectMapper.getTypeFactory().constructCollectionType(List.class, BlockWitPosJson.class));
-            blockWitPosList.forEach(b -> batch.setBlock(b.getX(), b.getY(), b.getZ(), Block.fromNamespaceId(b.getBlockID())));
+            blockWitPosList.stream().filter(blockWitPosJson -> !(blockWitPosJson.getY() == 40 && Block.fromNamespaceId(blockWitPosJson.getBlockID()).equals(Block.STONE))).toList().forEach(b -> batch.setBlock(b.getX(), b.getY(), b.getZ(), Block.fromNamespaceId(b.getBlockID())));
         }
     }
 }
