@@ -6,14 +6,13 @@ import net.minestom.server.command.CommandSender;
 import net.minestom.server.command.ConsoleSender;
 import net.minestom.server.command.builder.Command;
 import net.minestom.server.command.builder.CommandContext;
-import net.minestom.server.network.packet.server.play.SetCooldownPacket;
 import org.jetbrains.annotations.NotNull;
 
-public class TestCooldownCommand extends Command {
+public class TestCooldownCommand2 extends Command {
 
 
-    public TestCooldownCommand() {
-        super("testCooldown");
+    public TestCooldownCommand2() {
+        super("checkCooldown");
         setDefaultExecutor(this::usage);
     }
 
@@ -24,13 +23,6 @@ public class TestCooldownCommand extends Command {
         if (commandSender instanceof ConsoleSender) return;
 
         GamePlayer p = (GamePlayer) commandSender;
-
-        p.enableEffect(1);
-
-        Thread.sleep(1000);
-
-        p.useEffect(1);
-        Thread.sleep(1000);
 
         p.sendMessage("can use agin"+p.canUseEffect(1));
     }

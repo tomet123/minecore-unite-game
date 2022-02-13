@@ -12,5 +12,8 @@ public class SpellPlayerData {
     int lastSendDisable;
 
     int cooldown;
+    int cooldownCounter;
+
+
     BaseSpell spell;
 }

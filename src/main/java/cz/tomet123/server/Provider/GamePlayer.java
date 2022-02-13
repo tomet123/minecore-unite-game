@@ -51,7 +51,7 @@ public class GamePlayer extends Player {
     //spells
     private Map<Integer, SpellPlayerData> spells =new HashMap<>();
 
-    private Semaphore disabledEffectSemaphor = new Semaphore(1);
+    private Semaphore effectSemaphor = new Semaphore(1);
 
 
     public GamePlayer(@NotNull UUID uuid, @NotNull String username, @NotNull PlayerConnection playerConnection) {
@@ -61,7 +61,7 @@ public class GamePlayer extends Player {
 
 
         //TODO temp added spell - add to kits
-        spells.put(1,new SpellPlayerData(false,0,0,new ExampleSpell()));
+        spells.put(1,new SpellPlayerData(false,0,10,0,new ExampleSpell()));
 
 
         SchedulerManager scheduler = MinecraftServer.getSchedulerManager();
@@ -105,9 +105,9 @@ public class GamePlayer extends Player {
     }
 
     private void updateEffectCooldown(){
-        while (disabledEffectSemaphor.hasQueuedThreads());
-        try {
-            disabledEffectSemaphor.acquire();
+        while (effectSemaphor.hasQueuedThreads());
+        try{
+            effectSemaphor.acquire();
             spells.forEach((integer, spellPlayerData) -> {
                 if (!spellPlayerData.isActive()) {
                     if (spellPlayerData.getLastSendDisable() < UPDATE_DISABLED_SPELLS) {
@@ -116,21 +116,24 @@ public class GamePlayer extends Player {
                         spellPlayerData.setLastSendDisable(0);
                         getPlayerConnection().sendPacket(new SetCooldownPacket(getInventory().getItemStack(integer).getMaterial().id(), DISABLED_SPELLS_TIME));
                     }
+                }else if (spellPlayerData.getCooldownCounter()>0) {
+                    spellPlayerData.setCooldownCounter(spellPlayerData.getCooldownCounter()-1);
                 }
+
 
 
             });
         }catch (InterruptedException e){
             e.printStackTrace();
         }
-        disabledEffectSemaphor.release();
+       effectSemaphor.release();
     }
 
     public void enableEffect(int id){
         if(spells.get(id)==null) return;
-        while (disabledEffectSemaphor.hasQueuedThreads());
+        while (effectSemaphor.hasQueuedThreads());
         try {
-            disabledEffectSemaphor.acquire();
+            effectSemaphor.acquire();
             if (!spells.get(id).isActive()) {
                 spells.get(id).setLastSendDisable(0);
                 spells.get(id).setActive(true);
@@ -140,14 +143,14 @@ public class GamePlayer extends Player {
         }catch (InterruptedException e){
             e.printStackTrace();
         }
-        disabledEffectSemaphor.release();
+        effectSemaphor.release();
     }
 
     public void disableEffect(int id){
         if(spells.get(id)==null) return;
-        while (disabledEffectSemaphor.hasQueuedThreads());
+        while (effectSemaphor.hasQueuedThreads());
         try {
-            disabledEffectSemaphor.acquire();
+            effectSemaphor.acquire();
             if (spells.get(id).isActive()) {
                 spells.get(id).setLastSendDisable(0);
                 spells.get(id).setActive(false);
@@ -157,9 +160,45 @@ public class GamePlayer extends Player {
         }catch (InterruptedException e){
             e.printStackTrace();
         }
-        disabledEffectSemaphor.release();
+        effectSemaphor.release();
     }
 
+
+    public void useEffect(int id){
+        if(spells.get(id)==null) return;
+        while (effectSemaphor.hasQueuedThreads());
+        try {
+            effectSemaphor.acquire();
+            spells.get(id).setCooldownCounter(spells.get(id).getCooldown());
+            getPlayerConnection().sendPacket(new SetCooldownPacket(getInventory().getItemStack(id).getMaterial().id(), spells.get(id).getCooldownCounter()));
+
+        }catch (InterruptedException e){
+            e.printStackTrace();
+        }
+        effectSemaphor.release();
+
+
+    }
+
+    public boolean canUseEffect(int id){
+        if(spells.get(id)==null) return false;
+        while (effectSemaphor.hasQueuedThreads());
+        try {
+            effectSemaphor.acquire();
+            if(spells.get(id).getCooldownCounter()==0) {
+                getPlayerConnection().sendPacket(new SetCooldownPacket(getInventory().getItemStack(id).getMaterial().id(), 0));
+                return true;
+            }
+        }catch (InterruptedException e){
+            e.printStackTrace();
+        }
+        effectSemaphor.release();
+        return false;
+
+
+
+
+    }
 
     private void buildDefaultTeam() {
         TeamBuilder t = new TeamBuilder("nick_" + Objects.requireNonNull(playerConnection.getPlayer()).getUsername(), MinecraftServer.getTeamManager());

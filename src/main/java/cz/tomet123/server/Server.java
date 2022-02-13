@@ -1,10 +1,7 @@
 package cz.tomet123.server;
 
 import cz.tomet123.server.Provider.GamePlayer;
-import cz.tomet123.server.command.dev.GenerateChunkJsonCommand;
-import cz.tomet123.server.command.dev.TestCooldownCommand;
-import cz.tomet123.server.command.dev.TestLevelCommand;
-import cz.tomet123.server.command.dev.TestScoreCommand;
+import cz.tomet123.server.command.dev.*;
 import cz.tomet123.server.event.EventImpl;
 import cz.tomet123.server.map.LobbyMapMonitor;
 import cz.tomet123.server.world.SpawnGenerator;
@@ -112,6 +109,7 @@ public class Server {
         MinecraftServer.getCommandManager().register(new TestLevelCommand());
         MinecraftServer.getCommandManager().register(new TestScoreCommand());
         MinecraftServer.getCommandManager().register(new TestCooldownCommand());
+        MinecraftServer.getCommandManager().register(new TestCooldownCommand2());
 
 
     }
