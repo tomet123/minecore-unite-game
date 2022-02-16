@@ -1,6 +1,6 @@
-package cz.tomet123.server.Provider;
+package cz.tomet123.server.utils.player;
 
-import cz.tomet123.server.Spell.ExampleSpell;
+import cz.tomet123.server.ExampleSpell;
 import cz.tomet123.server.pojo.SpellPlayerData;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
@@ -22,36 +22,43 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 import java.util.UUID;
-import java.util.concurrent.Semaphore;
 
 public class GamePlayer extends Player {
 
-    private static final int UPDATE_DISABLED_SPELLS=16;
-    private static final int DISABLED_SPELLS_TIME=1000;
+    private static final int UPDATE_DISABLED_SPELLS = 16;
+    private static final int DISABLED_SPELLS_TIME = 1000;
 
 
     private Task nicKUpdateTask = null;
     private Team team = null;
+
     //nick
     private int levelLastSend = -1;
     private int scoreLastSend = -1;
     private TeamType teamTypeLastSend = TeamType.NOSET;
+
     //xpBar
     private int xpLevelLastSend = -1;
     private float xpNextLevelLastSend = -1;
+
     //inventory
-    private int invScoreLastSend = -1;
-    //RealData
+    private final int invScoreLastSend = -1;
+
+    //Level
     private int level = 0;
     private float nextLevel = 0;
+
+    //Score
     private int score = 0;
-    private TeamType teamType = TeamType.INLOBBY;
+
+    //Type
+    private final TeamType teamType = TeamType.INLOBBY;
+
     //max
-    private int maxScore = 30;
+    private final int maxScore = 30;
 
     //spells
-    private Map<Integer, SpellPlayerData> spells =new HashMap<>();
-
+    private final Map<Integer, SpellPlayerData> spells = new HashMap<>();
 
 
     public GamePlayer(@NotNull UUID uuid, @NotNull String username, @NotNull PlayerConnection playerConnection) {
@@ -61,7 +68,7 @@ public class GamePlayer extends Player {
 
 
         //TODO temp added spell - add to kits
-        spells.put(1,new SpellPlayerData(SpellPlayerData.state.DISABLED,10,new ExampleSpell()));
+        spells.put(1, new SpellPlayerData(SpellPlayerData.state.DISABLED, 10, new ExampleSpell()));
 
 
         SchedulerManager scheduler = MinecraftServer.getSchedulerManager();
@@ -104,76 +111,71 @@ public class GamePlayer extends Player {
         nicKUpdateTask = null;
     }
 
-    private void updateEffectCooldown(){
+    private void updateEffectCooldown() {
 
-            spells.forEach((integer, spellPlayerData) -> {
-                switch (spellPlayerData.getState()){
-                    case DISABLED -> {
-                        if (spellPlayerData.getLastSendDisable() < UPDATE_DISABLED_SPELLS) {
-                            spellPlayerData.setLastSendDisable(spellPlayerData.getLastSendDisable() + 1);
-                        } else {
-                            spellPlayerData.setLastSendDisable(0);
-                            getPlayerConnection().sendPacket(new SetCooldownPacket(getInventory().getItemStack(integer).getMaterial().id(), DISABLED_SPELLS_TIME));
-                        }
-                    }
-                    case COOLDOWN -> {
-                        if (spellPlayerData.getCooldownCounter()>0) {
-                            spellPlayerData.setCooldownCounter(spellPlayerData.getCooldownCounter()-1);
-                        }else spellPlayerData.setState(SpellPlayerData.state.READY);
-                    }
-                    case READY -> {
-                        if(spellPlayerData.getCooldownCounter()!=0)
-                        spellPlayerData.setCooldownCounter(0);
-                        if(spellPlayerData.getLastSendDisable()!=0)
-                            spellPlayerData.setLastSendDisable(0);
+        spells.forEach((integer, spellPlayerData) -> {
+            switch (spellPlayerData.getState()) {
+                case DISABLED -> {
+                    if (spellPlayerData.getLastSendDisable() < UPDATE_DISABLED_SPELLS) {
+                        spellPlayerData.setLastSendDisable(spellPlayerData.getLastSendDisable() + 1);
+                    } else {
+                        spellPlayerData.setLastSendDisable(0);
+                        getPlayerConnection().sendPacket(new SetCooldownPacket(getInventory().getItemStack(integer).getMaterial().id(), DISABLED_SPELLS_TIME));
                     }
                 }
-            });
-
-    }
-
-    public void enableEffect(int id){
-        if(spells.get(id)==null) return;
-            if (spells.get(id).getState().equals(SpellPlayerData.state.DISABLED)) {
-                spells.get(id).setState(SpellPlayerData.state.READY);
-                spells.get(id).setLastSendDisable(0);
-                getPlayerConnection().sendPacket(new SetCooldownPacket(getInventory().getItemStack(id).getMaterial().id(), 0));
+                case COOLDOWN -> {
+                    if (spellPlayerData.getCooldownCounter() > 0) {
+                        spellPlayerData.setCooldownCounter(spellPlayerData.getCooldownCounter() - 1);
+                    } else spellPlayerData.setState(SpellPlayerData.state.READY);
+                }
+                case READY -> {
+                    if (spellPlayerData.getCooldownCounter() != 0)
+                        spellPlayerData.setCooldownCounter(0);
+                    if (spellPlayerData.getLastSendDisable() != 0)
+                        spellPlayerData.setLastSendDisable(0);
+                }
             }
-    }
-
-    public void disableEffect(int id){
-        if(spells.get(id)==null) return;
-
-            if (spells.get(id).getState().equals(SpellPlayerData.state.READY)) {
-                spells.get(id).setState(SpellPlayerData.state.DISABLED);
-                spells.get(id).setLastSendDisable(0);
-                getPlayerConnection().sendPacket(new SetCooldownPacket(getInventory().getItemStack(id).getMaterial().id(), DISABLED_SPELLS_TIME));
-            }
-
+        });
 
     }
 
+    public void enableEffect(int id) {
+        if (spells.get(id) == null) return;
+        if (spells.get(id).getState().equals(SpellPlayerData.state.DISABLED)) {
+            spells.get(id).setState(SpellPlayerData.state.READY);
+            spells.get(id).setLastSendDisable(0);
+            getPlayerConnection().sendPacket(new SetCooldownPacket(getInventory().getItemStack(id).getMaterial().id(), 0));
+        }
+    }
 
-    public void useEffect(int id){
-        if(spells.get(id)==null) return;
-        if(spells.get(id).getState().equals(SpellPlayerData.state.READY)){
+    public void disableEffect(int id) {
+        if (spells.get(id) == null) return;
+
+        if (spells.get(id).getState().equals(SpellPlayerData.state.READY)) {
+            spells.get(id).setState(SpellPlayerData.state.DISABLED);
+            spells.get(id).setLastSendDisable(0);
+            getPlayerConnection().sendPacket(new SetCooldownPacket(getInventory().getItemStack(id).getMaterial().id(), DISABLED_SPELLS_TIME));
+        }
+
+
+    }
+
+
+    public void useEffect(int id) {
+        if (spells.get(id) == null) return;
+        if (spells.get(id).getState().equals(SpellPlayerData.state.READY)) {
             spells.get(id).setState(SpellPlayerData.state.COOLDOWN);
             spells.get(id).setCooldownCounter(spells.get(id).getCooldown());
             getPlayerConnection().sendPacket(new SetCooldownPacket(getInventory().getItemStack(id).getMaterial().id(), spells.get(id).getCooldownCounter()));
         }
 
 
-
     }
 
-    public boolean canUseEffect(int id){
-        if(spells.get(id)==null) return false;
+    public boolean canUseEffect(int id) {
+        if (spells.get(id) == null) return false;
 
-            if(spells.get(id).getState().equals(SpellPlayerData.state.READY)){
-                return true;
-            }
-
-        return false;
+        return spells.get(id).getState().equals(SpellPlayerData.state.READY);
 
     }
 

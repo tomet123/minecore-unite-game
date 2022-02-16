@@ -1,7 +1,6 @@
 package cz.tomet123.server.pojo;
 
-import cz.tomet123.server.Spell.BaseSpell;
-import cz.tomet123.server.Spell.ExampleSpell;
+import cz.tomet123.server.utils.spell.BaseSpell;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 

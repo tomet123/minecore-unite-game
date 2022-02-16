@@ -1,4 +1,4 @@
-package cz.tomet123.server.Spell;
+package cz.tomet123.server.utils.spell;
 
 import net.minestom.server.item.Material;
 

@@ -26,16 +26,24 @@ dependencies {
 }
 
 blossom {
-    replaceToken '$Name', displayName
-    replaceToken '$name', displayName.toLowerCase()
-    replaceToken '$version', version
-    replaceToken '$minestomVersion', minestomVersion
+    var constants = "src/main/java/cz/tomet123/server/Versions.java"
+    replaceToken( '$Name', displayName, constants)
+    replaceToken( '$name', displayName.toLowerCase(), constants)
+    replaceToken( '$version', version, constants)
+    replaceToken( '$minestomVersion', minestomVersion, constants)
 }
 
 processResources.expand(
         "Name": displayName,
         "version": version
 )
+
+processResources {
+    filesNotMatching("**/*.jpg") {
+
+    }
+
+}
 
 
 jar {

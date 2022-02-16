@@ -1,4 +1,4 @@
-package cz.tomet123.server.utils;
+package cz.tomet123.server.utils.general;
 
 import net.minestom.server.coordinate.Pos;
 

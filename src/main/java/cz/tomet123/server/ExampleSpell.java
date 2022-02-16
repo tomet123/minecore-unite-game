@@ -1,5 +1,6 @@
-package cz.tomet123.server.Spell;
+package cz.tomet123.server;
 
+import cz.tomet123.server.utils.spell.BaseSpell;
 import net.minestom.server.item.Material;
 
 public class ExampleSpell extends BaseSpell {

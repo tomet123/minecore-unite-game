@@ -1,8 +1,8 @@
-package cz.tomet123.server.command.dev;
+package cz.tomet123.server.utils.command.utils;
 
-import cz.tomet123.server.pojo.BlockWitPosJson;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import cz.tomet123.server.utils.pojo.BlockWitPosJson;
 import net.minestom.server.command.CommandSender;
 import net.minestom.server.command.ConsoleSender;
 import net.minestom.server.command.builder.Command;
@@ -23,8 +23,8 @@ public class GenerateChunkJsonCommand extends Command {
     int minY = 0;
     int maxY = 255;
 
-    public GenerateChunkJsonCommand() {
-        super("genJson");
+    public GenerateChunkJsonCommand(String cmd) {
+        super(cmd);
         setDefaultExecutor(this::usage);
     }
 

@@ -1,6 +1,6 @@
 package cz.tomet123.server.command.dev;
 
-import cz.tomet123.server.Provider.GamePlayer;
+import cz.tomet123.server.utils.player.GamePlayer;
 import lombok.SneakyThrows;
 import net.minestom.server.command.CommandSender;
 import net.minestom.server.command.ConsoleSender;

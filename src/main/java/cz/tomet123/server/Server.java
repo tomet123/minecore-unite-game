@@ -1,11 +1,10 @@
 package cz.tomet123.server;
 
-import cz.tomet123.server.Provider.GamePlayer;
+import cz.tomet123.server.utils.command.utils.GenerateChunkJsonCommand;
+import cz.tomet123.server.utils.player.GamePlayer;
 import cz.tomet123.server.command.dev.*;
 import cz.tomet123.server.event.EventImpl;
-import cz.tomet123.server.map.LobbyMapMonitor;
 import cz.tomet123.server.world.SpawnGenerator;
-import cz.tomet123.server.world.StoneGenerator;
 import net.minestom.server.MinecraftServer;
 import net.minestom.server.coordinate.Pos;
 import net.minestom.server.entity.GameMode;
@@ -39,7 +38,7 @@ public class Server {
     private InstanceContainer startingInstance;
     private InstanceContainer gameInstance;
 
-    private LobbyMapMonitor lobbymap;
+    private LobbyMapMonitor lobbymap=new LobbyMapMonitor();
 
     public Server() {
         minecraftServer = MinecraftServer.init();
@@ -54,7 +53,8 @@ public class Server {
 
         minecraftServer.start("0.0.0.0", 25565);
 
-        LobbyMapMonitor.inicialize(lobbyInstance, "lobby-main");
+        lobbymap.initMap(lobbyInstance);
+
 
     }
 
@@ -75,7 +75,7 @@ public class Server {
 
     private void initGame() {
         gameInstance = instanceManager.createInstanceContainer(generateFullLightDim());
-        gameInstance.setChunkGenerator(new StoneGenerator());
+        gameInstance.setChunkGenerator(new SpawnGenerator());
 
     }
 
@@ -99,7 +99,7 @@ public class Server {
 
         playerNode.addListener(PlayerLoginEvent.class, event -> {
             final Player player = event.getPlayer();
-            event.setSpawningInstance(gameInstance);
+            event.setSpawningInstance(lobbyInstance);
             player.setRespawnPoint(new Pos(Chunk.CHUNK_SIZE_X / 2, 42, Chunk.CHUNK_SIZE_Z / 2));
             if(!Server.DEV)player.setGameMode(GameMode.SURVIVAL);
             else player.setGameMode(GameMode.CREATIVE);
@@ -113,7 +113,7 @@ public class Server {
 
     private void dev() {
 
-        MinecraftServer.getCommandManager().register(new GenerateChunkJsonCommand());
+        MinecraftServer.getCommandManager().register(new GenerateChunkJsonCommand("genChunkJson"));
         MinecraftServer.getCommandManager().register(new TestLevelCommand());
         MinecraftServer.getCommandManager().register(new TestScoreCommand());
         MinecraftServer.getCommandManager().register(new TestCooldownCommand());
