@@ -6,7 +6,7 @@ plugins {
 }
 
 def displayName = "Minecore Unite Game"
-def minestomVersion = "cc0c7e00b2"
+def minestomVersion = "be100fa5b8"
 
 group 'cz.tomet123'
 version '0.1-alfa'
@@ -20,9 +20,13 @@ repositories {
     maven { url 'https://jitpack.io' }
 }
 
+
 dependencies {
     implementation 'com.github.Minestom:Minestom:'+minestomVersion
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.1'
+    //implementation 'org.slf4j:slf4j-log4j12:1.7.36'
+    implementation 'com.github.Bloepiloepi:MinestomPvP:7a9b276ffc'
+    implementation("com.google.guava:guava:31.0.1-jre")
 }
 
 blossom {

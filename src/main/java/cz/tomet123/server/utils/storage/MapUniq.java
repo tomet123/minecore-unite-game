@@ -1,4 +1,4 @@
-package cz.tomet123.server.Storage;
+package cz.tomet123.server.utils.storage;
 
 public class MapUniq {
 

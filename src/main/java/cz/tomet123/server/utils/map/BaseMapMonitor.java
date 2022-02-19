@@ -1,13 +1,15 @@
 package cz.tomet123.server.utils.map;
 
-import cz.tomet123.server.Storage.MapUniq;
+import cz.tomet123.server.utils.storage.MapUniq;
 import cz.tomet123.server.utils.pojo.MapPosition;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 import net.minestom.server.MinecraftServer;
 import net.minestom.server.coordinate.Pos;
 import net.minestom.server.entity.Entity;
 import net.minestom.server.entity.EntityType;
+import net.minestom.server.entity.Player;
 import net.minestom.server.entity.metadata.other.ItemFrameMeta;
 import net.minestom.server.instance.Instance;
 import net.minestom.server.item.ItemStack;
@@ -17,18 +19,23 @@ import net.minestom.server.map.framebuffers.LargeGraphics2DFramebuffer;
 import net.minestom.server.network.packet.server.play.MapDataPacket;
 import net.minestom.server.timer.SchedulerManager;
 import net.minestom.server.utils.time.TimeUnit;
+import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 
+@Slf4j
 public abstract class BaseMapMonitor {
 
-    protected static BaseMapMonitor map;
     protected LargeGraphics2DFramebuffer framebuffer;
     protected List<MapPosition> mpos = null;
-    private Instance instance;
+    protected List<MapDataPacket> mdpOld = null;
+    protected List<MapDataPacket> mdpBeforeSend = null;
+    protected Collection<Player> plOld =  new ArrayList<>();
+
     private MapPosition.rotation rotation = null;
     @Getter
     @Setter
@@ -47,7 +54,7 @@ public abstract class BaseMapMonitor {
     private ItemFrameMeta.Orientation orientation = ItemFrameMeta.Orientation.EAST;
     @Getter
     @Setter
-    private long repeatms = 50;
+    private long repeatms = 200;
 
     private static void tick(BaseMapMonitor map) {
 
@@ -61,28 +68,22 @@ public abstract class BaseMapMonitor {
     private Pos setPosYawPitch(ItemFrameMeta.Orientation rotation,Pos pos){
         switch (rotation){
             case UP ->{
-                pos.withYaw(0);
-                pos.withPitch(-90);
+                pos=pos.withView(0,-90);
             }
             case DOWN -> {
-                pos.withYaw(0);
-                pos.withPitch(90);
+                pos=pos.withView(0,90);
             }
             case EAST -> {
-                pos.withYaw(-90);
-                pos.withPitch(0);
+                pos=pos.withView(-90,0);
             }
             case WEST -> {
-                pos.withYaw(90);
-                pos.withPitch(0);
+                pos=pos.withView(90,0);
             }
             case NORTH -> {
-                pos.withYaw(180);
-                pos.withPitch(0);
+                pos=pos.withView(180,0);
             }
             case SOUTH -> {
-                pos.withYaw(0);
-                pos.withPitch(0);
+                pos=pos.withView(0,0);
             }
         }
         return pos;
@@ -117,7 +118,6 @@ public abstract class BaseMapMonitor {
 
     }
 
-    //TODO compute yaw and pitch
     private void createItemFrameWithMap(Instance i, int mapId, Pos pos, ItemFrameMeta.Orientation rotation) {
         ItemStack map = ItemStack.builder(Material.FILLED_MAP).meta(new MapMeta.Builder().mapId(mapId).build()).amount(1).build();
         Entity itemFrame = new Entity(EntityType.ITEM_FRAME);
@@ -130,7 +130,6 @@ public abstract class BaseMapMonitor {
     }
 
     public void initMap(Instance instance) {
-        this.instance = instance;
         if (instance == null) return;
         framebuffer = new LargeGraphics2DFramebuffer(128 * getSizeW(), 128 * getSizeH());
 
@@ -146,14 +145,31 @@ public abstract class BaseMapMonitor {
         long z = mpos.stream().map(mapPosition -> mapPosition.getZ()).distinct().count();
         if (x == 1) rotation = MapPosition.rotation.Z;
         else if (z == 1) rotation = MapPosition.rotation.X;
+        else throw new RuntimeException("Invalid map pos;");
     }
 
     private void send() {
         generateRotation();
         List<MapDataPacket> mdp = mpos.stream().map(mapPosition1 ->
                 framebuffer.createSubView(mapPosition1.getLeft(rotation), mapPosition1.getTop()).preparePacket(mapPosition1.getMapId())).toList();
+        Collection<Player> pl = MinecraftServer.getConnectionManager().getOnlinePlayers();
+        boolean playerChanged=false;
+        if(plOld!=null){
+            pl =pl.stream().filter(player ->player.getLatency()!=0).toList();
+            playerChanged =!(pl.containsAll(plOld) && plOld.containsAll(pl));
+        }
 
-        MinecraftServer.getConnectionManager().getOnlinePlayers().forEach(p -> mdp.forEach(mapDataPacket -> p.getPlayerConnection().sendPacket(mapDataPacket)));
+        if(mdpOld!=null && playerChanged==false){
+            log.debug("mpd before filter "+mdp.size());
+            mdpBeforeSend = mdp.stream().filter(mapDataPacket -> mdpOld.contains(mapDataPacket)).toList();
+            log.debug("mpd after filter "+mdpBeforeSend.size());
+        }else {
+            mdpBeforeSend=mdp;
+        }
+        pl.forEach(p -> mdpBeforeSend.forEach(mapDataPacket -> p.getPlayerConnection().sendPacket(mapDataPacket)));
+        mdpOld=mdp;
+        if(playerChanged)plOld=pl.stream().toList();
+        mdpBeforeSend=null;
     }
 
     protected abstract void renderer(Graphics2D renderer);

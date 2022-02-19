@@ -1,7 +1,7 @@
 package cz.tomet123.server.utils.player;
 
 import cz.tomet123.server.ExampleSpell;
-import cz.tomet123.server.pojo.SpellPlayerData;
+import cz.tomet123.server.utils.pojo.SpellPlayerData;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import net.minestom.server.MinecraftServer;
@@ -66,10 +66,8 @@ public class GamePlayer extends Player {
 
         buildDefaultTeam();
 
-
         //TODO temp added spell - add to kits
         spells.put(1, new SpellPlayerData(SpellPlayerData.state.DISABLED, 10, new ExampleSpell()));
-
 
         SchedulerManager scheduler = MinecraftServer.getSchedulerManager();
         scheduler.buildTask(() -> updateEffectCooldown()).executionType(ExecutionType.ASYNC).repeat(1, TimeUnit.CLIENT_TICK).schedule();
@@ -102,6 +100,26 @@ public class GamePlayer extends Player {
             score += x;
         }
         return 0;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void cleanScore() {
+        this.score = 0;
+    }
+
+    public double getPercentageFullScore(){
+        return score /(double)maxScore;
+    }
+
+    public void setScoring(int ticks){
+        getPlayerConnection().sendPacket(new SetCooldownPacket(getInventory().getItemStack(8).getMaterial().id(), ticks));
+    }
+
+    public void cleanScoring(){
+        getPlayerConnection().sendPacket(new SetCooldownPacket(getInventory().getItemStack(8).getMaterial().id(), 0));
     }
 
     @Override

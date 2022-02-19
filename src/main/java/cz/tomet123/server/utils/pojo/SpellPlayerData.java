@@ -1,4 +1,4 @@
-package cz.tomet123.server.pojo;
+package cz.tomet123.server.utils.pojo;
 
 import cz.tomet123.server.utils.spell.BaseSpell;
 import lombok.AllArgsConstructor;
