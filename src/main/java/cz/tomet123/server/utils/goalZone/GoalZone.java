@@ -22,8 +22,10 @@ import net.minestom.server.instance.block.Block;
 import net.minestom.server.timer.ExecutionType;
 import net.minestom.server.timer.SchedulerManager;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Function;
 
 
 @Slf4j
@@ -33,6 +35,11 @@ public class GoalZone {
     private final Point center;
     private final int initialScore;
     private final boolean finite;
+
+    private final GoalZone parentGoalZone;
+    private final GamePlayer.TeamType team;
+
+    private Function update;
 
     private Instance instance;
     private Entity holo;
@@ -45,14 +52,52 @@ public class GoalZone {
     List<Pos> border = new ArrayList<>();
 
 
-    public GoalZone( Point center, int points, boolean finite) {
+    public GoalZone(Point center, int points, boolean finite, GoalZone parentGoalZone, GamePlayer.TeamType team) {
 
         this.center = center;
         this.initialScore = points;
         this.finite = finite;
+        this.parentGoalZone = parentGoalZone;
+        this.team = team;
 
         generateCircle();
+        System.out.println(parentGoalZone);
+        if(parentGoalZone!=null) {
+            parentGoalZone.goalZoneUpdateFallback((cg -> {
+                this.updateHolo();
+                this.placeGoalZone(cg.isEmpty());
+                return null;
+            }));
+        }
 
+    }
+
+    public GamePlayer.TeamType getTeamAllowedToGoal(){
+        if(team== GamePlayer.TeamType.ORANGE){
+            return GamePlayer.TeamType.BLUE;
+        }else if(team== GamePlayer.TeamType.BLUE){
+            return GamePlayer.TeamType.ORANGE;
+        }else {
+            return null;
+        }
+    }
+
+    public void goalZoneUpdateFallback(Function<GoalZone,Void> f){
+        update=f;
+    }
+
+    private boolean isAllowedToGoal(GamePlayer p){
+        if(!isEmpty() && getTeamAllowedToGoal()==p.getTeamType() ){
+            if(parentGoalZone!=null && parentGoalZone.isEmpty()) {
+                return true;
+            }else if(parentGoalZone!=null && !parentGoalZone.isEmpty()){
+                return false;
+            }else {
+                return true;
+            }
+
+        }
+        return false;
     }
 
     private void placeHolo(){
@@ -66,7 +111,11 @@ public class GoalZone {
 
     private void updateHolo(){
         ArmorStandMeta meta = (ArmorStandMeta) holo.getEntityMeta();
-        meta.setCustomNameVisible(true);
+        if(parentGoalZone!=null) {
+            meta.setCustomNameVisible(parentGoalZone.isEmpty());
+        }else {
+            meta.setCustomNameVisible(true);
+        }
         meta.setCustomName(Component.text("Score "+score+"/"+initialScore));
         meta.setHasNoGravity(true);
         meta.setInvisible(true);
@@ -102,10 +151,32 @@ public class GoalZone {
         return p.getInstance().equals(instance) && validZone.stream().filter(pos -> p.getPosition().sameBlock(pos)).count()>0;
     }
 
-    private void placeGoalZone() {
-        validZone.forEach(point -> setBLock(instance,point,Block.BLUE_CARPET));
-        border.forEach(point -> setBLock(instance,point,Block.STONE_SLAB));
+    private void placeGoalZone(boolean allowed) {
+        Block centerActive;
+        Block centerInactive;
+        Block borderActive;
+        Block borderInactive;
+        if(team== GamePlayer.TeamType.BLUE){
+            centerActive=Block.LIGHT_BLUE_CARPET;
+            centerInactive=Block.BLUE_CARPET;
+            borderActive=Block.CUT_COPPER_SLAB;
+            borderInactive=Block.STONE_SLAB;
+        }else if(team== GamePlayer.TeamType.ORANGE){
+            centerActive=Block.ORANGE_CARPET;
+            centerInactive=Block.RED_CARPET;
+            borderActive=Block.CUT_COPPER_SLAB;
+            borderInactive=Block.STONE_SLAB;
+        }else {
+            throw new RuntimeException("invalid team");
+        }
 
+        if(allowed==true) {
+            validZone.forEach(point -> setBLock(instance, point, centerActive));
+            border.forEach(point -> setBLock(instance, point, borderActive));
+        }else {
+            validZone.forEach(point -> setBLock(instance, point, centerInactive));
+            border.forEach(point -> setBLock(instance, point, borderInactive));
+        }
     }
 
     private void removeGoalZone(){
@@ -117,14 +188,21 @@ public class GoalZone {
     }
 
     private void checkEmpty(){
-        if(finite){
-            if(score> initialScore){
+        if(isEmpty()){
                log.info("goal zone Full - Goal zone has score: "+score+"/"+initialScore);
                removeGoalZone();
                removeHolo();
-            }
         }
 
+    }
+
+    private boolean isEmpty(){
+        if(finite){
+            if(score> initialScore){
+                return true;
+            }
+        }
+        return false;
     }
 
     private void createGoalEvent(){
@@ -133,7 +211,7 @@ public class GoalZone {
         playerNode.addListener(PlayerStartSneakingEvent.class, playerStartSneakingEvent -> {
             GamePlayer p = (GamePlayer) playerStartSneakingEvent.getPlayer();
             SchedulerManager scheduler = MinecraftServer.getSchedulerManager();
-            scheduler.buildTask(() -> goalZoneAsyncProcessor(p,this)).executionType(ExecutionType.ASYNC).schedule();
+            scheduler.buildTask(() -> goalZoneAsyncProcessor(p,this,update)).executionType(ExecutionType.ASYNC).schedule();
         });
 
 
@@ -141,8 +219,12 @@ public class GoalZone {
         globalEventHandler.addChild(playerNode);
     }
 
-    private static void goalZoneAsyncProcessor(GamePlayer gamePlayer,GoalZone goalZone){
+    private static void goalZoneAsyncProcessor(GamePlayer gamePlayer,GoalZone goalZone, Function update){
         try{
+            if(!goalZone.isAllowedToGoal(gamePlayer)){
+                gamePlayer.sendMessage("Tady se nemuzes vysypat");
+                return;
+            }
             if(gamePlayer.getScore()==0){
                 log.debug("Player "+gamePlayer.getUsername()+" Try to goal with empty score");
                 return;
@@ -168,6 +250,9 @@ public class GoalZone {
             gamePlayer.cleanScore();
             goalZone.checkEmpty();
             goalZone.updateHolo();
+            if(update!=null) {
+                  update.apply(goalZone);
+            }
         }catch (Exception e){
             log.error(gamePlayer.getUsername()+" goal failed",e);
         }
@@ -176,7 +261,11 @@ public class GoalZone {
 
     public void initialize(Instance instance){
         this.instance = instance;
-        placeGoalZone();
+        if(parentGoalZone!=null) {
+            placeGoalZone(parentGoalZone.isEmpty());
+        }else {
+            placeGoalZone(true);
+        }
         createGoalEvent();
         placeHolo();
     }

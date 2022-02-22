@@ -1,5 +1,6 @@
 package cz.tomet123.server.utils.map;
 
+import com.google.common.collect.Sets;
 import cz.tomet123.server.utils.storage.MapUniq;
 import cz.tomet123.server.utils.pojo.MapPosition;
 import lombok.Getter;
@@ -23,8 +24,10 @@ import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 @Slf4j
@@ -159,16 +162,20 @@ public abstract class BaseMapMonitor {
             playerChanged =!(pl.containsAll(plOld) && plOld.containsAll(pl));
         }
 
-        if(mdpOld!=null && playerChanged==false){
-            log.debug("mpd before filter "+mdp.size());
-            mdpBeforeSend = mdp.stream().filter(mapDataPacket -> mdpOld.contains(mapDataPacket)).toList();
-            log.debug("mpd after filter "+mdpBeforeSend.size());
+        if(mdpOld!=null && !playerChanged){
+            log.info("mpd before filter "+mdp.size());
+            mdpBeforeSend = mdp.stream().filter(mapDataPacket -> {
+                MapDataPacket.ColorContent c = mapDataPacket.colorContent();
+                int i = mapDataPacket.mapId();
+                return !(mdpOld.stream().filter(m -> m.mapId()==i).filter(x -> Arrays.equals(x.colorContent().data(), c.data())).count() == 1);
+            }).toList();
+            log.info("mpd after filter "+mdpBeforeSend.size());
         }else {
             mdpBeforeSend=mdp;
         }
         pl.forEach(p -> mdpBeforeSend.forEach(mapDataPacket -> p.getPlayerConnection().sendPacket(mapDataPacket)));
-        mdpOld=mdp;
-        if(playerChanged)plOld=pl.stream().toList();
+        mdpOld= new ArrayList<>(mdp);
+        if(playerChanged)plOld=new ArrayList<>(pl);
         mdpBeforeSend=null;
     }
 

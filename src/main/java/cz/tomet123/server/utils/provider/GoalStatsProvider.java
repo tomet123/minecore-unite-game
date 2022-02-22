@@ -19,6 +19,10 @@ public class GoalStatsProvider {
         statistics.compute(player,(gamePlayer, integer) -> integer+score);
     }
 
+    public Map<Player, Integer> getStatistics() {
+        return statistics;
+    }
+
     @Override
     public String toString() {
         return "GoalStatsProvider{" +

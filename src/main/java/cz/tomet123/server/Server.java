@@ -13,7 +13,6 @@ import lombok.extern.slf4j.Slf4j;
 import net.minestom.server.MinecraftServer;
 import net.minestom.server.coordinate.Pos;
 import net.minestom.server.entity.GameMode;
-import net.minestom.server.entity.Player;
 import net.minestom.server.event.EventFilter;
 import net.minestom.server.event.EventNode;
 import net.minestom.server.event.GlobalEventHandler;
@@ -46,11 +45,15 @@ public class Server {
     private InstanceContainer startingInstance;
     private InstanceContainer gameInstance;
 
-    private GoalZone goalZone = new GoalZone(new Pos(20,41,20),10,true);
+    private GoalZone goalZone1 = new GoalZone(new Pos(10,41,20),10,true, null, GamePlayer.TeamType.BLUE);
+    private GoalZone goalZone = new GoalZone(new Pos(20,41,20),10,true, goalZone1, GamePlayer.TeamType.BLUE);
+    private GoalZone goalZoneo = new GoalZone(new Pos(20,41,30),10,true, null, GamePlayer.TeamType.ORANGE);
 
     private GoalStatsProvider goalStatsProvider = new GoalStatsProvider();
 
-    private LobbyMapMonitor lobbymap=new LobbyMapMonitor();
+    private LobbyMapMonitor lobbymap=new LobbyMapMonitor(goalStatsProvider);
+
+   // private MapArray mapArray = new MapArray(lobbyInstance, ItemFrameMeta.Orientation.EAST,6,25,43,38,-1);
 
     public Server() {
         minecraftServer = MinecraftServer.init();
@@ -69,9 +72,13 @@ public class Server {
 
         minecraftServer.start("0.0.0.0", 25565);
 
+
         lobbymap.initMap(lobbyInstance);
         goalZone.initialize(lobbyInstance);
+        goalZone1.initialize(lobbyInstance);
+        goalZoneo.initialize(lobbyInstance);
         goalZone.setGoalStatsProvider(goalStatsProvider);
+        goalZone1.setGoalStatsProvider(goalStatsProvider);
         MinecraftServer.setDifficulty(Difficulty.NORMAL);
 
 
@@ -118,9 +125,10 @@ public class Server {
         });
 
         playerNode.addListener(PlayerLoginEvent.class, event -> {
-            final Player player = event.getPlayer();
+            final GamePlayer player = (GamePlayer) event.getPlayer();
             event.setSpawningInstance(lobbyInstance);
             player.setRespawnPoint(new Pos(Chunk.CHUNK_SIZE_X / 2, 42, Chunk.CHUNK_SIZE_Z / 2));
+            player.setTeamType(GamePlayer.TeamType.ORANGE);
             if(!Server.DEV)player.setGameMode(GameMode.SURVIVAL);
             else player.setGameMode(GameMode.CREATIVE);
             player.getInventory().setItemStack(0,ItemStack.of(Material.DIAMOND_SWORD,1));

@@ -2,6 +2,8 @@ package cz.tomet123.server.utils.player;
 
 import cz.tomet123.server.ExampleSpell;
 import cz.tomet123.server.utils.pojo.SpellPlayerData;
+import lombok.Getter;
+import lombok.Setter;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import net.minestom.server.MinecraftServer;
@@ -52,7 +54,9 @@ public class GamePlayer extends Player {
     private int score = 0;
 
     //Type
-    private final TeamType teamType = TeamType.INLOBBY;
+    @Getter
+    @Setter
+    private TeamType teamType = TeamType.INLOBBY;
 
     //max
     private final int maxScore = 30;
@@ -232,8 +236,8 @@ public class GamePlayer extends Player {
             team.setSuffix(Component.text(" (" + score + ")", NamedTextColor.LIGHT_PURPLE));
 
             switch (teamType) {
-                case LEFT -> team.setTeamColor(NamedTextColor.GOLD);
-                case RIGHT -> team.setTeamColor(NamedTextColor.BLUE);
+                case ORANGE -> team.setTeamColor(NamedTextColor.GOLD);
+                case BLUE -> team.setTeamColor(NamedTextColor.BLUE);
                 case INLOBBY -> team.setTeamColor(NamedTextColor.BLACK);
                 case INSTART -> team.setTeamColor(NamedTextColor.GREEN);
             }
@@ -245,8 +249,8 @@ public class GamePlayer extends Player {
         }
     }
 
-    enum TeamType {
-        LEFT, RIGHT, INSTART, INLOBBY, NOSET
+    public enum TeamType {
+        ORANGE, BLUE, INSTART, INLOBBY, NOSET
     }
 
 
